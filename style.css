@@ -1,0 +1,46 @@
+main {
+    text-align: center;
+    margin-top: 100px;
+}
+
+button {
+    font-size: 16px;
+    border-radius: 10px;
+    background-color:rgb(114, 232, 181);
+    border:2px solid rgb(114, 232, 181);
+    font-size: 20px;
+    text-align: center;
+}
+
+input {
+    color: rgb(3, 115, 66);
+    border-radius: 10px;
+    font-size: 20px;
+    border:2px solid rgb(114, 232, 181);
+    text-align: center; 
+    outline-color: rgb(114, 232, 181);
+}
+
+ul {
+    text-align: center;
+    color: rgb(3, 115, 66); 
+}
+
+#plantdetails {
+    margin-top: 150px;
+}
+
+.columns {
+    padding-left: 20px;
+}
+
+.content p {
+    padding-top: 20px;
+    font-weight: bolder;
+    color: rgb(3, 115, 66);
+}
+
+li:hover {  
+    /* background-color:rgb(114, 232, 181); */
+    opacity: 0.5;
+}
