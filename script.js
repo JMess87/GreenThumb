@@ -10,6 +10,7 @@ var idealLight = $('#ideallight');
 var toleratedLight = $('#toleratedlight');
 var watering = $('#watering');
 var commonNames = [];
+
 // var commonNames = ["lipstick", "lily", "maindenhair", "delta maindenhair", "silver vase", "century plant", "coral berry", "thread agave", "chinese evergreen",
 // "manila pride", "blue agave", "jubilee"];
 var listItem = $('<li>');
@@ -93,6 +94,120 @@ $(function(){
     // searchButton.click(function (e) {    
     //     e.preventDefault();
     // });
+
+
+
+    //  All code above this line has been validated
+// Lines below are space holder for Survarna Code 12/14 to 12/15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Everything below this line is code space for Brian 12/15 to 12/15
+
+
+
+
+
+
+
+
+
+
 
 
 
