@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Green Thumb !</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
     <main>
+        <label for="category">Find By Category</label>
+        <select name="category" id="selectedCategory">
+            <option value="hanging">Hanging</option>
+            <option value="fern">Fern</option>
+            <option value="bromeliad">Bromeliad</option>
+            <option value="cactussucculent">Cactus & Succulent</option>
+            <option value="aglaonema">Aglaonema</option>
+        </select>
         <input type="text" id="plantName" placeholder="Enter Plant Name">
-        <ul id="commonNamesList"></ul>
+        <ul id="categoryArrayList"></ul>
         <!-- <button id="search">Search</button> -->
         <div id="plantdetails">
             <div class="columns">
@@ -22,6 +30,16 @@
                         </header>
                         <div class="content">
                             <p id="family"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">Category</p>
+                        </header>
+                        <div class="content">
+                            <p id="category"></p>
                         </div>
                     </div>
                 </div>
@@ -97,6 +115,190 @@
                 </div>
             </div>
         </div>
+
+<!-- All HTML above this line was displayed by Survarna during class. Leave until we determine our wireframe she can use if needed for testing purposes. All new HTML Spaces below.
+Z: Lines 103 to 153-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Jenny Lines 155 to 205
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Brian Lines 207 to 357-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Suvarna Lines 259 to end main tag -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./script.js"></script>
