@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <main>
+        <input type="text" id="plantName" placeholder="Enter Plant Name">
+        <ul id="commonNamesList"></ul>
+        <!-- <button id="search">Search</button> -->
+        <div id="plantdetails">
+            <div class="columns">
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">Family</p>
+                        </header>
+                        <div class="content">
+                            <p id="family"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">Origin</p>
+                        </header>
+                        <div class="content">
+                            <p id="origin"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">Climate</p>
+                        </header>
+                        <div class="content">
+                            <p id="climate"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">TempMax Celsius</p>
+                        </header>
+                        <div class="content">
+                            <p id="tempmax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">TempMin Celsius</p>
+                        </header>
+                        <div class="content">
+                            <p id="tempmin"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">Ideal Light</p>
+                        </header>
+                        <div class="content">
+                            <p id="ideallight"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">Tolerated Light</p>
+                        </header>
+                        <div class="content">
+                            <p id="toleratedlight"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">Watering</p>
+                        </header>
+                        <div class="content">
+                            <p id="watering"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
