@@ -43,6 +43,14 @@ $(function(){
     };
 
     plantName.keyup(function (e) { 
+        family.text('');
+        origin.text('');
+        climate.text('');
+        tempMax.text('');
+        tempMin.text('');
+        idealLight.text('');
+        toleratedLight.text('');
+        watering.text('');
         $('li').each(function(){
             $(this).remove();
         });
