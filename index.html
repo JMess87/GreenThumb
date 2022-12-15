@@ -10,8 +10,16 @@
 </head>
 <body>
     <main>
+        <label for="category">Find By Category</label>
+        <select name="category" id="selectedCategory">
+            <option value="hanging">Hanging</option>
+            <option value="fern">Fern</option>
+            <option value="bromeliad">Bromeliad</option>
+            <option value="cactussucculent">Cactus & Succulent</option>
+            <option value="aglaonema">Aglaonema</option>
+        </select>
         <input type="text" id="plantName" placeholder="Enter Plant Name">
-        <ul id="commonNamesList"></ul>
+        <ul id="categoryArrayList"></ul>
         <!-- <button id="search">Search</button> -->
         <div id="plantdetails">
             <div class="columns">
@@ -22,6 +30,16 @@
                         </header>
                         <div class="content">
                             <p id="family"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card is-2 m-1 has-background-success-light">
+                    <div class="card-content">
+                        <header class="card-header">
+                            <p class="card-header-title has-text-success">Category</p>
+                        </header>
+                        <div class="content">
+                            <p id="category"></p>
                         </div>
                     </div>
                 </div>

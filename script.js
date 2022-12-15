@@ -1,7 +1,8 @@
 var plantName = $('#plantName');
-var commonNamesList = $('#commonNamesList');
+var categoryArrayList = $('#categoryArrayList');
 var searchButton = $('#search');
 var family = $('#family');
+var category = $('#category');
 var origin = $('#origin');
 var climate = $('#climate');
 var tempMax = $('#tempmax');
@@ -9,13 +10,22 @@ var tempMin = $('#tempmin');
 var idealLight = $('#ideallight');
 var toleratedLight = $('#toleratedlight');
 var watering = $('#watering');
+var selectedCategory = $('#selectedCategory');
 var commonNames = [];
+var categories = [];
+var hanging = [];
+var fern = [];
+var bromeliad = [];
+var cactussucculent = [];
+var aglaonema = [];
+var listItem = $('<li>');
 
 // var commonNames = ["lipstick", "lily", "maindenhair", "delta maindenhair", "silver vase", "century plant", "coral berry", "thread agave", "chinese evergreen",
 // "manila pride", "blue agave", "jubilee"];
-var listItem = $('<li>');
+
 
 $(function(){
+
     const options = {
         method: 'GET',
         headers: {
@@ -23,9 +33,9 @@ $(function(){
             'X-RapidAPI-Host': 'house-plants.p.rapidapi.com'
         }
     };
-    
+
     getAllCommonNames();
-    
+
     function getAllCommonNames(){
         fetch('https://house-plants.p.rapidapi.com/all', options)
             .then(function (response) {
@@ -33,8 +43,34 @@ $(function(){
             })
             .then(function (data) {
                 for(var i = 0; i < data.length; i++){
-                    for(var j = 0; j < data[i].common.length; j++){
-                        commonNames.push(data[i].common[j].toLowerCase());
+                    var category = data[i].category;
+                    if (category === 'Hanging') {
+                        for(var j = 0; j < data[i].common.length; j++){
+                            hanging.push(data[i].common[j].toLowerCase());
+                        }
+                    } else if (category === 'Fern') {
+                        for(var j = 0; j < data[i].common.length; j++){
+                            fern.push(data[i].common[j].toLowerCase());
+                        } 
+                    } else if (category === 'Bromeliad') {
+                        for(var j = 0; j < data[i].common.length; j++){
+                            bromeliad.push(data[i].common[j].toLowerCase());
+                        }
+                    } else if (category === 'Cactus & Succulent') {
+                        for(var j = 0; j < data[i].common.length; j++){
+                            cactussucculent.push(data[i].common[j].toLowerCase());
+                        } 
+                    } else if (category === 'Aglaonema') {
+                        for(var j = 0; j < data[i].common.length; j++){
+                            aglaonema.push(data[i].common[j].toLowerCase());
+                        } 
+                    }
+           
+                    if (!(categories.includes(data[i].category))){
+                        categories.push(data[i].category);
+                    }
+                    for(var i = 0; i < categories.length; i++){
+                        console.log("Category : " + categories[i]);
                     } 
                 }
             })
@@ -43,31 +79,50 @@ $(function(){
             });    
     };
 
-    plantName.keyup(function (e) { 
-        family.text('');
-        origin.text('');
-        climate.text('');
-        tempMax.text('');
-        tempMin.text('');
-        idealLight.text('');
-        toleratedLight.text('');
-        watering.text('');
-        $('li').each(function(){
-            $(this).remove();
-        });
-        var name = $(this).val().toLowerCase();
-        for (i = 0; i < commonNames.length; i++) {
-            if (commonNames[i].startsWith(name) && name != '')
-            {
-                var listItem = $('<li>');
-                listItem.text(commonNames[i]);
-                commonNamesList.append(listItem);
-                $('li').click(function() {
-                    retrievePlantInfo($(this).text());
-                });
-            }
+    selectedCategory.change(function(){
+        var category = $(this).val();
+        console.log("Category : " + category);
+        if (category === 'hanging') {
+            allPlantsInThisCategory(hanging);
+        } else if (category === 'fern') {
+            allPlantsInThisCategory(fern); 
+        } else if (category === 'bromeliad') {
+            allPlantsInThisCategory(bromeliad);  
+        } else if (category === 'cactussucculent') {
+            allPlantsInThisCategory(cactussucculent); 
+        } else if (category === 'aglaonema') {
+            allPlantsInThisCategory(aglaonema); 
         }
     });
+
+    function allPlantsInThisCategory(categoryArray){
+        plantName.keyup(function (e) { 
+            family.text('');
+            category.text('');
+            origin.text('');
+            climate.text('');
+            tempMax.text('');
+            tempMin.text('');
+            idealLight.text('');
+            toleratedLight.text('');
+            watering.text('');
+            $('li').each(function(){
+                $(this).remove();
+            });
+            var name = $(this).val().toLowerCase();
+            for (i = 0; i < categoryArray.length; i++) {
+                if (categoryArray[i].startsWith(name) && name != '')
+                {
+                    var listItem = $('<li>');
+                    listItem.text(categoryArray[i]);
+                    categoryArrayList.append(listItem);
+                    $('li').click(function() {
+                        retrievePlantInfo($(this).text());
+                    });
+                }
+            }
+        });
+    }
 
     function retrievePlantInfo(name){
         var name = name.split(' ').join('')
@@ -77,6 +132,7 @@ $(function(){
             })
             .then(function (data) {
                 family.text(data[0].family);
+                category.text(data[0].category);
                 origin.text(data[0].origin);
                 climate.text(data[0].climate);
                 tempMax.text(data[0].tempmax.celsius);
