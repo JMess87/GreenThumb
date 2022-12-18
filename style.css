@@ -1,3 +1,18 @@
+:root {
+    --title-font-family:'Roboto',sans-serif;
+    --logo-font-family:'Aclonica',sans-serif;
+    --dark-green: #2C5732;
+    --medium-green: #688C4F;
+    --light-green: #CAD9BA;
+    --medium-purple: #A64E7E;
+    --tan: #D99771;
+    --light-blue: #BFD6D9; }
+
+
+
+h1{
+    font-family:var(--logo-font-family --dark-green);}
+
 main {
     width:80%;
     text-align: center;
@@ -45,10 +60,6 @@ li:hover {
     /* background-color:rgb(114, 232, 181); */
     opacity: 0.5;
 }
-
-/*  Code above this line ok for now. 12/14 */
-
-/* Z Line 51 to 101
 
 
 
