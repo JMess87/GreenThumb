@@ -1,6 +1,6 @@
 main {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 button {
@@ -27,7 +27,11 @@ ul {
 }
 
 #plantdetails {
-    margin-top: 150px;
+    margin-top: 50px;
+}
+
+#plantpicture {
+    margin-top: 20px;
 }
 
 .columns {
@@ -41,176 +45,5 @@ ul {
 }
 
 li:hover {  
-    /* background-color:rgb(114, 232, 181); */
     opacity: 0.5;
 }
-
-/*  Code above this line ok for now. 12/14 */
-
-/* Z Line 51 to 101
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Jenny Lines 103 to 153 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Brian Lines 155 to 205  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Suvarna Lines 207 to end of file*/
-
-
-
-
-
-
-
-
-
-
