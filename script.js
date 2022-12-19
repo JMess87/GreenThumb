@@ -6,7 +6,7 @@ var commonNamesList = $('#commonnameslist');
 var searchButton = $('#search');
 var family = $('#family');
 var category = $('#category');
-var origin = $('#origin');
+var origin = $('#origin')
 var latin = $('#latinname');
 var climate = $('#climate');
 var tempMax = $('#tempmax');
@@ -14,7 +14,7 @@ var tempMin = $('#tempmin');
 var idealLight = $('#ideallight');
 var toleratedLight = $('#toleratedlight');
 var watering = $('#watering');
-var hangingButton = $('#hanging');
+var hangingButton = $('#hanging')
 var fernButton = $('#fern');
 var succulentButton = $('#succulent');
 var flowerButton = $('#flower');
@@ -30,6 +30,9 @@ var flowerPlants = [];
 var foliagePlants = [];
 var palmPlants = [];
 var listItem = $('<li>');
+var getAllImages = [];
+var imglatin = new Object();
+
 
     const options = {
         method: 'GET',
@@ -38,6 +41,35 @@ var listItem = $('<li>');
             'X-RapidAPI-Host': 'house-plants.p.rapidapi.com'
         }
     };
+
+    const options2 = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'a9893fa65emsh05499dc68ccba82p199e67jsnbfdbb0594c96',
+            'X-RapidAPI-Host': 'house-plants2.p.rapidapi.com'
+        }
+    };
+
+    fetch(`https://house-plants2.p.rapidapi.com/`, options2)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            for(var i = 0; i < data.length; i++){
+                var secondLatin = data[i]['Latin name'];
+                secondLatin = secondLatin.split('\'')[0];
+                secondLatin = secondLatin.split(' ').join('');
+                imglink = data[i].img;
+                imglatin = {
+                    latinname: secondLatin,
+                    imgsource: imglink
+                }
+                getAllImages.push(imglatin);                
+            }
+        })
+        .catch(function (err) {  
+            console.error(err);
+        });
 
     filter.click(function (e) { 
         categoryFilter.show();
@@ -181,40 +213,21 @@ var listItem = $('<li>');
         latinName = latinName.split(' ').join('');
         latinName = latinName.slice(0, -1);
 
-        const optionssecond = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': 'a9893fa65emsh05499dc68ccba82p199e67jsnbfdbb0594c96',
-                'X-RapidAPI-Host': 'house-plants2.p.rapidapi.com'
-            }
-        };
-
         fetch(`https://house-plants.p.rapidapi.com/latin/${latinName}`, options)
             .then(function (response) {
                 return response.json();
             })
             .then(function (data) {
-
-
-            fetch(`https://house-plants2.p.rapidapi.com/`, optionssecond)
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (data) {
-                    for(var i = 0; i < data.length; i++){
-                        var secondLatin = data[i]['Latin name'];
-                        secondLatin = secondLatin.split('\'')[0];
-                        secondLatin = secondLatin.split(' ').join('');
-                        if (latinName === secondLatin){
-                            plantImage.attr('src', data[i].img);
-                            break;
-                        }
-                    }
-                })
-                .catch(function (err) {  
-                    console.error(err);
-                });
-
+                var imagesourcelink;
+                for(var i=0; i<getAllImages.length; i++){
+                    console.log("1: " + latinName);
+                    console.log("2: " + getAllImages[i].latinname);
+                    if(latinName.toLowerCase() === getAllImages[i].latinname.toLowerCase()){
+                        console.log("Image Source : " + getAllImages[i].imgsource);
+                        imagesourcelink = getAllImages[i].imgsource;
+                    }   
+                }
+                plantImage.attr('src', imagesourcelink);
                 family.text(data[0].family);
                 category.text(data[0].category);
                 origin.text(data[0].origin);
