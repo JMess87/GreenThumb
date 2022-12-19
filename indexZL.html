@@ -37,6 +37,7 @@
     <section class="section">
     </section>
 
+    <!-- main logo and search box section -->
     <main class="container" id="home-page">
         <section>
             <h1 id="logo-large" class="title is-1">GreenThumb</h1>
@@ -45,7 +46,8 @@
 
         <section id="search-bar-main" class="field has-addons has-addons-centered">
             <div id="input-field" class="control">
-                <input id="search-input" class="input " type="text" placeholder="what plants are you looking for?" onfocus="this.value=''">
+                <input id="search-input" class="input " type="text" placeholder="what plants are you looking for?"
+                    onfocus="this.value=''">
             </div>
             <div class="control">
                 <button id="search-btn" class="button">Search</button>
@@ -55,12 +57,37 @@
             </div>
         </section>
 
-    <section>
+        <!-- filter buttons section -->
+        <section id="filter-box" class="buttons is-grouped is-centered">
+            <p class="control mt-2">
+                <button class="button is-small is-rounded">Hanging</button>
+            </p>
+            <p class="control mt-2">
+                <button class="button is-small is-rounded is-outlined">Fern</button>
+            </p>
+            <p class="control mt-2">
+                <button class="button is-small is-rounded is-outlined">Cactus and Succulent</button>
+            </p>
+            <p class="control mt-2">
+                <button class="button is-small is-rounded is-outlined">Flower</button>
+            </p>
+            <p class="control mt-2">
+                <button class="button is-small is-rounded is-outlined">Foliage</button>
+            </p>
+            <p class="control mt-2">
+                <button class="button is-small is-rounded is-outlined">Palm</button>
+            </p>
+        </section>
+
+        <!-- spacer section -->
+        <section class="section"></section>
+
+        <section class="container mt-6">
             <img src="./images/Plant-btm.png" alt="potted-plants-bottom">
-    </section>
+        </section>
     </main>
 
-    <!-- remove "is-active" class in JS to hide this card overlay -->
+    <!-- remove "is-active" class in JS to hide this information card overlay or add "is-active" class to show -->
     <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-card" id="modal-card-box">
@@ -75,10 +102,9 @@
 
             <section class="modal-card-body">
 
-                <figure class="image image is-2by1">
+                <figure class="image is-2by1">
                     <img src="https://bulma.io/images/placeholders/640x320.png" alt="placeholder-img">
                 </figure>
-
                 <div class="columns mt-3">
                     <div class="column">
                         <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
@@ -114,7 +140,6 @@
                         <img src="./images/plant-example-01.png" alt="plant-example">
                     </div> -->
                 </div>
-
             </section>
             <footer class="modal-card-foot">
                 <button id="find-btn" class="button is-success">Find Me</button>

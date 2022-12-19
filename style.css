@@ -92,9 +92,13 @@ nav a {
     width: 30rem;
 }
 
+/* #filter-box { */
+    /* width: 60rem; */
+/* } */
+
 #search-bar-main {
     margin-top: 2rem;
-    margin-bottom: 10rem;
+    /* margin-bottom: 10rem; */
 }
 
 #search-btn {
@@ -107,6 +111,7 @@ nav a {
 #filter-btn {
     background-color: var(--medium-green);
     color: white;
+    border-color: var(--medium-green);
 }
 
 #find-btn {
