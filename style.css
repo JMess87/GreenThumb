@@ -19,7 +19,7 @@ h1{
 main {
     width:80%;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 100px;
 }
 
 button {
@@ -46,11 +46,7 @@ ul {
 }
 
 #plantdetails {
-    margin-top: 50px;
-}
-
-#plantpicture {
-    margin-top: 20px;
+    margin-top: 150px;
 }
 
 .columns {
@@ -64,9 +60,9 @@ ul {
 }
 
 li:hover {  
-    opacity: 0.5; }
-
-
+    /* background-color:rgb(114, 232, 181); */
+    opacity: 0.5;
+}
 
 /* add style (zl) */
 
@@ -138,3 +134,158 @@ nav a {
     font-size: 1.1rem;
     font-weight: 700;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Jenny Lines 103 to 153 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Brian Lines 155 to 205  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Suvarna Lines 207 to end of file*/
+
+
+
+
+
+
+
+
+
+
