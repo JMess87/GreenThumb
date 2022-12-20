@@ -8,6 +8,11 @@ var family = $('#family');
 var category = $('#category');
 var origin = $('#origin')
 var latin = $('#latinname');
+var plantName = $('#plantName');
+var commonNamesList = $('#commonNamesList');
+var searchButton = $('#search');
+var family = $('#family');
+var origin = $('#origin');
 var climate = $('#climate');
 var tempMax = $('#tempmax');
 var tempMin = $('#tempmin');
@@ -34,6 +39,13 @@ var getAllImages = [];
 var imglatin = new Object();
 
 
+var commonNames = [];
+
+// var commonNames = ["lipstick", "lily", "maindenhair", "delta maindenhair", "silver vase", "century plant", "coral berry", "thread agave", "chinese evergreen",
+// "manila pride", "blue agave", "jubilee"];
+var listItem = $('<li>');
+
+$(function(){
     const options = {
         method: 'GET',
         headers: {
@@ -41,7 +53,7 @@ var imglatin = new Object();
             'X-RapidAPI-Host': 'house-plants.p.rapidapi.com'
         }
     };
-
+    
     const options2 = {
         method: 'GET',
         headers: {
@@ -76,7 +88,7 @@ var imglatin = new Object();
     });
     
     getAllCommonNames();
-
+    
     function getAllCommonNames(){
         fetch('https://house-plants.p.rapidapi.com/all', options)
             .then(function (response) {
@@ -84,6 +96,7 @@ var imglatin = new Object();
             })
             .then(function (data) {
                 for(var i = 0; i < data.length; i++){
+
                     var category = data[i].category;
                     var latinName = data[i].latin;
                     switch(category){
@@ -108,10 +121,18 @@ var imglatin = new Object();
                     }
                 } 
             })       
+
+                    for(var j = 0; j < data[i].common.length; j++){
+                        commonNames.push(data[i].common[j].toLowerCase());
+                    } 
+                }
+            })
+
             .catch(function (err) {  
                 console.error(err);
             });    
     };
+
 
     function hangingArray(hanging, latin){
         for(var j = 0; j < hanging.length; j++){
@@ -136,8 +157,33 @@ var imglatin = new Object();
     function foliageArray(foliage, latin){
         for(var j = 0; j < foliage.length; j++){
             foliagePlants.push(foliage[j] + "(" + latin + ")");
+=======
+    plantName.keyup(function (e) { 
+        family.text('');
+        origin.text('');
+        climate.text('');
+        tempMax.text('');
+        tempMin.text('');
+        idealLight.text('');
+        toleratedLight.text('');
+        watering.text('');
+        $('li').each(function(){
+            $(this).remove();
+        });
+        var name = $(this).val().toLowerCase();
+        for (i = 0; i < commonNames.length; i++) {
+            if (commonNames[i].startsWith(name) && name != '')
+            {
+                var listItem = $('<li>');
+                listItem.text(commonNames[i]);
+                commonNamesList.append(listItem);
+                $('li').click(function() {
+                    retrievePlantInfo($(this).text());
+                });
+            }
         }
     }
+    
     function palmArray(palm, latin){
         for(var j = 0; j < palm.length; j++){
             palmPlants.push(palm[j] + "(" + latin + ")");
@@ -168,6 +214,7 @@ var imglatin = new Object();
         e.preventDefault();
         allPlantsInThisCategory(palmPlants);
     });
+
 
     function allPlantsInThisCategory(currentCategoryArray){
         plantName.keyup(function (e) { 
@@ -207,7 +254,7 @@ var imglatin = new Object();
         var name = plantName.val();
         retrievePlantInfo(name);
     });
-
+    
     function retrievePlantInfo(name){
         var latinName = name.split('(')[1];
         latinName = latinName.split(' ').join('');
@@ -229,7 +276,6 @@ var imglatin = new Object();
                 }
                 plantImage.attr('src', imagesourcelink);
                 family.text(data[0].family);
-                category.text(data[0].category);
                 origin.text(data[0].origin);
                 latin.text(data[0].latin);
                 climate.text(data[0].climate);
@@ -243,8 +289,3 @@ var imglatin = new Object();
                 console.error(err);
             });
     };
-
-    
-
-
-    

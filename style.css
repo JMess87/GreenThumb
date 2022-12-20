@@ -1,4 +1,23 @@
+:root {
+    --title-font-family:'Roboto',sans-serif;
+    --logo-font-family:'Aclonica',sans-serif;
+    --dark-green: #2C5732;
+    --medium-green: #688C4F;
+    --light-green: #CAD9BA;
+    --medium-purple: #A64E7E;
+    --tan: #D99771;
+    --light-blue: #BFD6D9; }
+
+*{
+    font-family: var(--title-font-family);
+}
+
+
+h1{
+    font-family:var(--logo-font-family --dark-green);}
+
 main {
+    width:80%;
     text-align: center;
     margin-top: 60px;
 }
@@ -23,7 +42,7 @@ input {
 
 ul {
     text-align: center;
-    color: rgb(3, 115, 66); 
+    /* color: rgb(3, 115, 66);  */
 }
 
 #plantdetails {
@@ -45,5 +64,77 @@ ul {
 }
 
 li:hover {  
-    opacity: 0.5;
+    opacity: 0.5; }
+
+
+
+/* add style (zl) */
+
+#header-top {
+    margin-top: 1em;
+}
+
+#logo-small {
+    font-family: var(--logo-font-family);
+    color: var(--medium-green);
+}
+
+#logo-large {
+    font-family: var(--logo-font-family);
+    color: var(--medium-green);
+}
+
+nav a {
+    color: var(--medium-green);
+}
+
+#sub-text {
+    color: var(--medium-green);
+}
+
+#input-field {
+    width: 30rem;
+}
+
+/* #filter-box { */
+    /* width: 60rem; */
+/* } */
+
+#search-bar-main {
+    margin-top: 2rem;
+    /* margin-bottom: 10rem; */
+}
+
+#search-btn {
+    background-color: var(--medium-green);
+    color: white;
+    border-color: var(--medium-green);
+    margin-right: 0.5rem;
+}
+
+#filter-btn {
+    background-color: var(--medium-green);
+    color: white;
+    border-color: var(--medium-green);
+}
+
+#find-btn {
+    background-color: var(--medium-green);
+    color: white;
+}
+
+#info-plant-name-lg {
+    font-family: var(--logo-font-family);
+    color: var(--dark-green);
+}
+
+#info-plant-name-sm {
+    font-family: var(--logo-font-family);
+    color: var(--dark-green);
+}
+
+.info-subtitle {
+    color: var(--dark-green);
+    font-size: 1.1rem;
+    font-weight: 700;
 }
