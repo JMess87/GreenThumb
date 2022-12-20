@@ -220,10 +220,7 @@ var imglatin = new Object();
             .then(function (data) {
                 var imagesourcelink;
                 for(var i=0; i<getAllImages.length; i++){
-                    console.log("1: " + latinName);
-                    console.log("2: " + getAllImages[i].latinname);
                     if(latinName.toLowerCase() === getAllImages[i].latinname.toLowerCase()){
-                        console.log("Image Source : " + getAllImages[i].imgsource);
                         imagesourcelink = getAllImages[i].imgsource;
                     }   
                 }
