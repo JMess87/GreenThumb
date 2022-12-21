@@ -1,10 +1,12 @@
-var plantName = $('#plantname');
-var filter = $('#filter');
-var search = $('#search');
-var categoryFilter = $('#categoryfilter');
+var plantName = $('#search-input');
+var filter = $('#filter-btn');
+var search = $('#search-btn');
+var categoryFilter = $('#filter-box');
 var commonNamesList = $('#commonnameslist');
 var searchButton = $('#search');
+var plantDetails = $('#plantdetails');
 var family = $('#family');
+var common = $('#commonname');
 var category = $('#category');
 var origin = $('#origin')
 var latin = $('#latinname');
@@ -21,7 +23,6 @@ var flowerButton = $('#flower');
 var foliagePlantButton = $('#foliagePlant');
 var palmButton = $('#palm');
 var plantImage = $('#plantimage');
-var commonNames = [];
 var categories = [];
 var hangingPlants = [];
 var fernPlants = [];
@@ -173,6 +174,7 @@ var imglatin = new Object();
         plantName.keyup(function (e) { 
             plantImage.attr('src', '');
             family.text('');
+            common.text('');
             category.text('');
             origin.text('');
             latin.text('');
@@ -205,10 +207,12 @@ var imglatin = new Object();
     search.click(function (e) {   
         e.preventDefault();
         var name = plantName.val();
-        retrievePlantInfo(name);
+        retrievePlantInfo(name);  
+        plantDetails.addClass('is-active');
     });
 
     function retrievePlantInfo(name){
+        var commonName = name.split('(')[0];
         var latinName = name.split('(')[1];
         latinName = latinName.split(' ').join('');
         latinName = latinName.slice(0, -1);
@@ -225,6 +229,7 @@ var imglatin = new Object();
                     }   
                 }
                 plantImage.attr('src', imagesourcelink);
+                common.text(commonName);
                 family.text(data[0].family);
                 category.text(data[0].category);
                 origin.text(data[0].origin);
