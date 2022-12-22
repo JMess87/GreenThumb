@@ -29,4 +29,9 @@ Wireframe: Zhihao
 CSS: Jennilee / Zhihao
 HTML: Brian / Suvarna
 API: All 
-PPT: Zhihao / Jennilee
+Google SlidesJennilee
+
+
+Resources:
+
+Carousel: https://webdesign.tutsplus.com/tutorials/how-to-build-a-simple-carousel-with-vanilla-javascript--cms-41734
