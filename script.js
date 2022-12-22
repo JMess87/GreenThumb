@@ -184,9 +184,11 @@ var imglatin = new Object();
             idealLight.text('');
             toleratedLight.text('');
             watering.text('');
+
             // $('li').each(function(){
             //     $(this).remove();
             // });
+
             var name = $(this).val().toLowerCase();
             for (i = 0; i < currentCategoryArray.length; i++) {
                 var commonName = currentCategoryArray[i].toLowerCase();
@@ -197,8 +199,8 @@ var imglatin = new Object();
                     commonNamesList.append(listItem);
                     $('li').click(function() {
                         plantName.val($(this).text());
-                        // $('li').remove();
 
+                        // $('li').remove();
                     });
                 }
             }
