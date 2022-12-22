@@ -185,9 +185,9 @@ var imglatin = new Object();
             toleratedLight.text('');
             watering.text('');
 
-            // $('li').each(function(){
-            //     $(this).remove();
-            // });
+            $('li').each(function(){
+                $(this).remove();
+            });
 
             var name = $(this).val().toLowerCase();
             for (i = 0; i < currentCategoryArray.length; i++) {
@@ -200,7 +200,7 @@ var imglatin = new Object();
                     $('li').click(function() {
                         plantName.val($(this).text());
 
-                        // $('li').remove();
+                        $('li').remove();
                     });
                 }
             }
