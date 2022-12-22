@@ -133,7 +133,7 @@ nav a {
 }
 
 /* image hover effects: hover to zoom in */
-.result-image {
+/* .result-image {
     overflow: hidden;
     margin: 0 auto;
 }
@@ -145,7 +145,7 @@ nav a {
 
 .result-image:hover img {
     transform: scale(1.5);
-}
+} */
 
 
 
