@@ -16,55 +16,55 @@
 h1{
     font-family:var(--logo-font-family --dark-green);}
 
-main {
+/* main {
     width:80%;
     text-align: center;
     margin-top: 100px;
-}
+} */
 
-button {
+/* button {
     font-size: 16px;
     border-radius: 10px;
     background-color:rgb(114, 232, 181);
     border:2px solid rgb(114, 232, 181);
     font-size: 20px;
     text-align: center;
-}
+} */
 
-input {
+/* input {
     color: rgb(3, 115, 66);
     border-radius: 10px;
     font-size: 20px;
     border:2px solid rgb(114, 232, 181);
     text-align: center; 
     outline-color: rgb(114, 232, 181);
-}
+} */
 
-ul {
+/* ul {
     text-align: center;
-    /* color: rgb(3, 115, 66);  */
-}
+    color: rgb(3, 115, 66); 
+} */
 
-#plantdetails {
+/* #plantdetails {
     margin-top: 150px;
-}
+} */
 
-.columns {
+/* .columns {
     padding-left: 20px;
-}
+} */
 
-.content p {
+/* .content p {
     padding-top: 20px;
     font-weight: bolder;
     color: rgb(3, 115, 66);
-}
+} */
 
 li:hover {  
     /* background-color:rgb(114, 232, 181); */
     opacity: 0.5;
 }
 
-/* add style (zl) */
+/* add style below (zl) */
 
 #header-top {
     margin-top: 1em;
@@ -92,13 +92,8 @@ nav a {
     width: 30rem;
 }
 
-/* #filter-box { */
-    /* width: 60rem; */
-/* } */
-
 #search-bar-main {
     margin-top: 2rem;
-    /* margin-bottom: 10rem; */
 }
 
 #search-btn {
@@ -119,12 +114,14 @@ nav a {
     color: white;
 }
 
-#info-plant-name-lg {
+/* title font family and color on plant infomation card  */
+#commonname {
     font-family: var(--logo-font-family);
     color: var(--dark-green);
 }
 
-#info-plant-name-sm {
+/* subtitle font family and color on plant infomation card */
+#latinname {
     font-family: var(--logo-font-family);
     color: var(--dark-green);
 }
@@ -135,6 +132,20 @@ nav a {
     font-weight: 700;
 }
 
+/* image hover effects: hover to zoom in */
+.result-image {
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.result-image img {
+    width: 100%;
+    transition: 0.5s all ease-in-out;
+}
+
+.result-image:hover img {
+    transform: scale(1.5);
+}
 
 
 
