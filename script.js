@@ -23,7 +23,7 @@ var flowerButton = $('#flower');
 var foliagePlantButton = $('#foliagePlant');
 var palmButton = $('#palm');
 var plantImage = $('#plantimage');
-var categories = [];
+var allPlantsCommonLatinNames = [];
 var hangingPlants = [];
 var fernPlants = [];
 var cactussucculentPlants = [];
@@ -75,8 +75,6 @@ var imglatin = new Object();
     filter.click(function (e) { 
         categoryFilter.show();
     });
-    
-    getAllCommonNames();
 
     function getAllCommonNames(){
         fetch('https://house-plants.p.rapidapi.com/all', options)
@@ -87,6 +85,7 @@ var imglatin = new Object();
                 for(var i = 0; i < data.length; i++){
                     var category = data[i].category;
                     var latinName = data[i].latin;
+                    allPlantsCommonLatinNames.push(data[i].common + "(" + latinName + ")");
                     switch(category){
                         case 'Hanging':
                             hangingArray(data[i].common, latinName);
@@ -113,6 +112,10 @@ var imglatin = new Object();
                 console.error(err);
             });    
     };
+
+    getAllCommonNames();
+
+    plantName.keyup(allPlantsInThisCategory(allPlantsCommonLatinNames));
 
     function hangingArray(hanging, latin){
         for(var j = 0; j < hanging.length; j++){
