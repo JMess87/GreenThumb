@@ -96,14 +96,13 @@
         <!-- homepage white spacer bottom-->
         <section id="homepage-spacer-btm" class="section" style="display: show"></section>
 
-        <div class="container" style="display: show">
+        <!-- <div class="container" style="display: show">
             <div class="notification has-background-white has-text-left	">
                 6 results for <strong>plant common name</strong> in the database:
-            </div> -->
-        <!-- </div>
-
+            </div>
+       
         <!-- search result card section below -->
-        <section class="columns is-multiline is-centered ">
+        <!-- <section class="columns is-multiline is-centered ">
 
             <section class="column is-4">
                 <section class="card">
@@ -215,10 +214,10 @@
                     </div>
                 </section>
             </section>
-        </section>
+        </section> -->
 
         <!-- plant image shown on the bottom of the homepage -->
-        <section class="container mt-6 pt-3" style="display: none">
+        <section id="img-plant-row" class="container mt-6 pt-3" style="display: show">
             <img src="./images/Plant-btm.png" alt="potted-plants-bottom">
         </section>
         <!-- About remove "is-active" class in JS to hid this informaiton card overlay or add "is-active" class to show -->
@@ -265,7 +264,7 @@
                         <p id="commonname" class="info-plant-name-lg title is-3">Plant Name</p>
                         <p id="latinname" class="info-plant-name-sm subtitle is-6">Plant Latin Name</p>
                     </ul>
-                    <button class="delete" aria-label="close"></button>
+                    <button id="delete-btn" class="delete" aria-label="close"></button>
                 </header>
 
                 <section class="modal-card-body has-background-white">
@@ -308,7 +307,7 @@
                 </section>
                 <footer class="modal-card-foot">
                     <button id="find-btn" class="button is-success">Find Me</button>
-                    <button class="button">Cancel</button>
+                    <button id='plant-cancel-btn' class="button">Cancel</button>
                 </footer>
             </div>
         </section>
