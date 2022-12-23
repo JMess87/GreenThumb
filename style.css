@@ -147,6 +147,18 @@ nav a {
     transform: scale(1.5);
 } */
 
+#img-plant-row {
+    position: fixed;
+    bottom: 3rem;
+    z-index: -1;
+}
+
+#commonnameslist {
+    background-color: white;
+}
+
+
+
 
 
 
