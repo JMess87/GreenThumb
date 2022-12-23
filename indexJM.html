@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Thumb !</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    </style>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <!-- About Modal in js append class to is-active when event listener is clicked -->
+<main>
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card" id="modal-card-box">
+            <header class="modal-card-head">
+                <ul
+                    class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
+                    <li id="info-plant-name-lg" class="title is-3">About Green Thumb</li>
+                    <li id="info-plant-name-sm" class="subtitle is-6">Our Vision and Mission</li>
+                </ul>
+                <button class="delete" aria-label="close"></button>
+            </header>
+
+            <section class="modal-card-body">
+
+                
+                <div class="columns mt-3">
+                    <div class="column">
+                        <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                            <li class="info-subtitle">Vision</li>
+                            <p> To enable all plant owners to meet their full "growth" potential. Allowing all homes to be covered in foliage that is properly cared for and vibrant!</p>
+                        </ul>
+                        <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                            <li class="info-subtitle">Mission</li>
+                            <p>Mission description</p>
+                        </ul>
+                        <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                            <li class="info-subtitle">What we deliver</li>
+                            <p>Product summary and how it meets our vision and mission</p>
+                        </ul>
+                    </div>
+                </main>
+
+    <!-- Team Profile Modal -->
+    <main>
+    <div class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-card" id="modal-card-box">
+            <header class="modal-card-head">
+                <ul
+                    class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
+                    <li id="info-plant-name-lg" class="title is-3">Team Profile</li>
+                    <li id="info-plant-name-sm" class="subtitle is-6"> Meet our Team </li>
+                </ul>
+                <button class="delete" aria-label="close"></button>
+            </header>
+    <section>
+        <div class="slider-wrapper">
+            <button class="slide-arrow" id="slide-arrow-prev">
+                    &#8249;
+            </button>
+                    
+            <button class="slide-arrow" id="slide-arrow-next">
+                    &#8250;
+            </button>
+                    
+                <ul class="slides-container" id="slides-container">
+                    <li class="slide"><img src="./images/Brian McDonell.jpeg"><br>Brian McDonell - Google Places API, JS, HTML </li>
+                    <li class="slide"><img src="./images/Suvarna Jadhav.png"><br>Suvarna Jadhave - Plants API 1 and 2, JS, HTML, JQUERY, CSS</li>
+                    <li class="slide"><img src="./images/Zhihao Li.jpeg"><br>Zhihao Li- Wireframe, Bulma CSS, Custom CSS, Visual Genius </li>
+                    <li class="slide"><img src="./images/BeFunky-photo.png" height="800" width="400"><br> Jennilee Messenger - Google Slides , Project Management, JS, CSS </li>
+                    </ul>
+                
+                </div>
+                </section>
+
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="./script.js"></script>
+
+</body>
+
+</html>
