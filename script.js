@@ -35,6 +35,8 @@ var getAllImages = [];
 var imglatin = new Object();
 
 
+
+
 const options = {
     method: 'GET',
     headers: {
@@ -268,4 +270,6 @@ $('#plant-cancel-btn').click(function (e) {
     e.preventDefault();
     plantDetails.removeClass('is-active');
 });
+
+
 
