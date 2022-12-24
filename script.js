@@ -33,7 +33,7 @@ var palmPlants = [];
 var listItem = $('<li>');
 var getAllImages = [];
 var imglatin = new Object();
-// variables by ZL
+
 var imgSourceArray = [];
 var useEl = $('#use');
 var singleCategoryArr = [];
@@ -43,6 +43,7 @@ var cactusPlantsArr = [];
 var flowerPlantsArr = [];
 var foliagePlantsArr = [];
 var palmPlantsArr = [];
+const marquee1 = document.getElementById('marquee1');
 
 
 const options = {
@@ -432,4 +433,20 @@ function showResultText() {
     $('#homepage-spacer-btm').attr('style', 'display:none');
 }
 
+// Marquee Animation
+animate(marquee1);
 
+
+function animate(element) {
+    let elementWidth = element.offsetWidth;
+    let parentWidth = element.parentElement.offsetWidth;
+    let flag = 0;
+
+    setInterval(() => {
+        element.style.marginLeft = --flag + "px";
+
+        if (elementWidth == -flag) {
+            flag = parentWidth;
+        }
+    },20);
+}

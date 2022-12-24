@@ -164,6 +164,7 @@ nav a {
     background-color: white;
 }
 
+
 #plant-card-container img {
     cursor: pointer;
 }
@@ -236,144 +237,20 @@ nav a {
         margin-right: 1rem;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Jenny Lines 103 to 153 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Brian Lines 155 to 205  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Suvarna Lines 207 to end of file*/
+/* Marquee Style */
+#marquee1{
+    border: 1px solid;
+    border-radius: 10rem;
+    color: white;
+    background-color: var(--dark-green);
+    width: 50%;
+    overflow: hidden;
+   }
+
+  .marquee{
+    color: black;
+    font-weight: bold;
+    white-space: nowrap;
+    clear: both;
+    float: left;
+  }
