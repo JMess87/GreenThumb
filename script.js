@@ -33,8 +33,16 @@ var palmPlants = [];
 var listItem = $('<li>');
 var getAllImages = [];
 var imglatin = new Object();
-
-
+// variables by ZL
+var imgSourceArray = [];
+var useEl = $('#use');
+var singleCategoryArr = [];
+var hangingPlantsArr = [];
+var fernPlantsArr = [];
+var cactusPlantsArr = [];
+var flowerPlantsArr = [];
+var foliagePlantsArr = [];
+var palmPlantsArr = [];
 
 
 const options = {
@@ -53,6 +61,7 @@ const options2 = {
     }
 };
 
+// fetch all plants data from API-2
 fetch(`https://house-plants2.p.rapidapi.com/`, options2)
     .then(function (response) {
         return response.json();
@@ -67,16 +76,53 @@ fetch(`https://house-plants2.p.rapidapi.com/`, options2)
                 latinname: secondLatin,
                 imgsource: imglink
             }
+            // push each object comtaining latin name and image link to an array
             getAllImages.push(imglatin);
+
+            // push hanging category in hangingPlants Array (ZL)
+            if (data[i]['Categories'] === 'Hanging') {
+                hangingPlantsArr.push(data[i]);
+            }
+            else if (data[i]['Categories'] === 'Fern') {
+                fernPlantsArr.push(data[i]);
+            }
+            else if (data[i]['Categories'] === 'Cactus & Succulent') {
+                cactusPlantsArr.push(data[i]);
+            }
+            else if (data[i]['Categories'] === 'Flower') {
+                flowerPlantsArr.push(data[i]);
+            }
+            else if (data[i]['Categories'] === 'Foliage plant') {
+                foliagePlantsArr.push(data[i]);
+            }
+            else if (data[i]['Categories'] === 'Palm') {
+                palmPlantsArr.push(data[i]);
+            };
+
         }
     })
     .catch(function (err) {
         console.error(err);
     });
 
+// modified filter button code to hide and show by clicking the same button (ZL)
 filter.click(function (e) {
-    categoryFilter.show();
-});
+    e.preventDefault();
+    var filterDisplay = document.getElementById('filter-box').style.display;
+    if (filterDisplay === 'none') {
+        $('#filter-box').attr('style', 'display:show');
+        $('#homepage-spacer-btm').attr('style', 'display:none');
+    } else {
+        $('#filter-box').attr('style', 'display:none');
+        $('#plant-card-container').empty();
+        $('#result-number-text').text('');
+        $('#homepage-spacer-btm').attr('style', 'display:show');
+        $('#img-plant-row').attr('style', 'display:show');
+        $('#search-input').val('');
+        // reset the plants name array to include all plants for search input
+        allPlantsInThisCategory(allPlantsCommonLatinNames);
+    };
+})
 
 function getAllCommonNames() {
     fetch('https://house-plants.p.rapidapi.com/all', options)
@@ -150,28 +196,74 @@ function palmArray(palm, latin) {
     }
 }
 
+// modified click event for hanging button(ZL)
 hangingButton.click(function (e) {
     e.preventDefault();
+    // remove all child nodes under section #plant-card-container
+    $('#plant-card-container').empty();
+    // hide decoration image below
+    $('#img-plant-row').attr('style', 'display:none');
+    // assign category array to a new array for running shared functions under each category 
+    singleCategoryArr = hangingPlantsArr;
+    // display the number of plants under selected category
+    showResultText();
+    // show all cards under selected category
+    showSingleCategoryCard();
     allPlantsInThisCategory(hangingPlants);
 });
+
 fernButton.click(function (e) {
     e.preventDefault();
+    // added code (ZL)
+    $('#plant-card-container').empty();
+    $('#img-plant-row').attr('style', 'display:none');
+    singleCategoryArr = fernPlantsArr;
+    showResultText();
+    showSingleCategoryCard();
     allPlantsInThisCategory(fernPlants);
 });
+
 succulentButton.click(function (e) {
     e.preventDefault();
+    // added code (ZL)
+    $('#plant-card-container').empty();
+    $('#img-plant-row').attr('style', 'display:none');
+    singleCategoryArr = cactusPlantsArr;
+    showResultText();
+    showSingleCategoryCard();
     allPlantsInThisCategory(cactussucculentPlants);
 });
+
 flowerButton.click(function (e) {
     e.preventDefault();
+    // added code (ZL)
+    $('#plant-card-container').empty();
+    $('#img-plant-row').attr('style', 'display:none');
+    singleCategoryArr = flowerPlantsArr;
+    showResultText();
+    showSingleCategoryCard();
     allPlantsInThisCategory(flowerPlants);
 });
+
 foliagePlantButton.click(function (e) {
     e.preventDefault();
+    // added code (ZL)
+    $('#plant-card-container').empty();
+    $('#img-plant-row').attr('style', 'display:none');
+    singleCategoryArr = foliagePlantsArr;
+    showResultText();
+    showSingleCategoryCard();
     allPlantsInThisCategory(foliagePlants);
 });
+
 palmButton.click(function (e) {
     e.preventDefault();
+    // added code (ZL)
+    $('#plant-card-container').empty();
+    $('#img-plant-row').attr('style', 'display:none');
+    singleCategoryArr = palmPlantsArr;
+    showResultText();
+    showSingleCategoryCard();
     allPlantsInThisCategory(palmPlants);
 });
 
@@ -249,17 +341,17 @@ function retrievePlantInfo(name) {
             origin.text(data[0].origin);
             latin.text(data[0].latin);
             climate.text(data[0].climate);
-            tempMax.text(data[0].tempmax.celsius);
-            tempMin.text(data[0].tempmin.celsius);
+            tempMax.text('Max ' + data[0].tempmax.celsius + '\xB0' + 'C');
+            tempMin.text('Min ' + data[0].tempmin.celsius + '\xB0' + 'C');
             idealLight.text(data[0].ideallight);
             toleratedLight.text(data[0].toleratedlight);
             watering.text(data[0].watering);
+            useEl.text(data[0].use[0]);
         })
         .catch(function (err) {
             console.error(err);
         });
 };
-
 
 $('#delete-btn').click(function (e) {
     e.preventDefault();
@@ -271,5 +363,73 @@ $('#plant-cancel-btn').click(function (e) {
     plantDetails.removeClass('is-active');
 });
 
+$('#plant-card-container').click(function (e) {
+    e.preventDefault();
+    var cardPlantID;
+    if (e.target.tagName === 'IMG') {
+        cardPlantID = e.target.parentNode.parentNode.parentNode.parentNode.id;
+        showInfoByID(cardPlantID);
+        plantDetails.addClass('is-active');
+    };
+});
+
+// function to show plant cards by appending sections to the container section (ZL)
+function showSingleCategoryCard() {
+    for (var i = 0; i < singleCategoryArr.length; i++) {
+        // including bulma style classes in the appended elements
+        $('<section class="column is-4"><section class="card"></section></section>').appendTo('#plant-card-container');
+        var imageCard = document.getElementById('plant-card-container');
+        $(imageCard.children[i]).attr('id', singleCategoryArr[i].id);
+        $('<div class="card-image"><figure class="result-image image is-4by3"><img></figure></div>').appendTo(imageCard.children[i].children[0]);
+        var imgCardEl = $('#plant-card-container img');
+        $(imgCardEl[i]).attr('src', singleCategoryArr[i].img);
+        $('<div class="card-content"><div class="media"><div class="media-content"><p class="title is-4"></p></div></div></div>').appendTo(imageCard.children[i].children[0]);
+        var imgCardTitle1 = $('#plant-card-container p');
+        if (singleCategoryArr[i]['Common name'] !== null) {
+            $(imgCardTitle1[i]).text(singleCategoryArr[i]['Common name'][0]);
+        } else {
+            $(imgCardTitle1[i]).text(singleCategoryArr[i]['Latin name']);
+        };
+    };
+    for (var i = 0; i < singleCategoryArr.length; i++) {
+        $('<p class="subtitle is-6"></p>').insertAfter(imgCardTitle1[i]);
+        $(imgCardTitle1[i].parentNode.children[1]).text(singleCategoryArr[i]['Latin name']);
+    };
+}
+
+function showInfoByID(cardPlantID) {
+    for (var i = 0; i < singleCategoryArr.length; i++) {
+        if (cardPlantID === singleCategoryArr[i].id) {
+            plantImage.attr('src', singleCategoryArr[i].img);
+            // if a plant doesn't have a common name in the API data, show latin name instead
+            if (singleCategoryArr[i]['Common name'] !== null) {
+                common.text(singleCategoryArr[i]['Common name'][0]);
+            } else {
+                common.text(singleCategoryArr[i]['Latin name']);
+            };
+            family.text(singleCategoryArr[i]['Family']);
+            category.text(singleCategoryArr[i]['Categories']);
+            origin.text(singleCategoryArr[i]['Origin'].join());
+            latin.text(singleCategoryArr[i]['Latin name']);
+            climate.text(singleCategoryArr[i]['Climat']);
+            tempMax.text('Max ' + singleCategoryArr[i]['Temperature max']['C'] + '\xB0' + 'C');
+            if (singleCategoryArr[i]['Temperature min'] !== null) {
+                tempMin.text('Min ' + singleCategoryArr[i]['Temperature min']['C'] + '\xB0' + 'C');
+            } else {
+                tempMin.text('');
+            };
+            idealLight.text(singleCategoryArr[i]['Light ideal']);
+            toleratedLight.text(singleCategoryArr[i]['Light tolered']);
+            watering.text(singleCategoryArr[i]['Watering']);
+            useEl.text(singleCategoryArr[i]['Use'][0]);
+        };
+    };
+}
+// function to show search research message (ZL)
+function showResultText() {
+    var resultNumberText = "We've found " + singleCategoryArr.length + " " + "plants under " + '"' + singleCategoryArr[0]['Categories'] + '"' + " category:";
+    $('#result-number-text').text(resultNumberText);
+    $('#homepage-spacer-btm').attr('style', 'display:none');
+}
 
 

@@ -1,20 +1,22 @@
 :root {
-    --title-font-family:'Roboto',sans-serif;
-    --logo-font-family:'Aclonica',sans-serif;
+    --title-font-family: 'Roboto', sans-serif;
+    --logo-font-family: 'Aclonica', sans-serif;
     --dark-green: #2C5732;
     --medium-green: #688C4F;
     --light-green: #CAD9BA;
     --medium-purple: #A64E7E;
     --tan: #D99771;
-    --light-blue: #BFD6D9; }
+    --light-blue: #BFD6D9;
+}
 
-*{
+* {
     font-family: var(--title-font-family);
 }
 
 
-h1{
-    font-family:var(--logo-font-family --dark-green);}
+h1 {
+    font-family: var(--logo-font-family --dark-green);
+}
 
 /* main {
     width:80%;
@@ -59,7 +61,7 @@ h1{
     color: rgb(3, 115, 66);
 } */
 
-li:hover {  
+li:hover {
     /* background-color:rgb(114, 232, 181); */
     opacity: 0.5;
 }
@@ -68,6 +70,8 @@ li:hover {
 
 #header-top {
     margin-top: 1em;
+    /* margin-left: 1rem;
+    margin-right: 1rem; */
 }
 
 #logo-small {
@@ -86,6 +90,8 @@ nav a {
 
 #sub-text {
     color: var(--medium-green);
+    text-align: center;
+    font-size: 100%;
 }
 
 #input-field {
@@ -158,10 +164,78 @@ nav a {
     background-color: white;
 }
 
+#plant-card-container img {
+    cursor: pointer;
+}
 
+/* #navBar {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+} */
 
+#navBar button {
+    color: var(--medium-green);
+    font-family: var(--title-font-family);
+}
 
+/* Media query breakpoints for Extra small devices (phones, 600px and down). */
 
+@media screen and (max-width: 600px) {
+    #logo-small {
+        display: none;
+    }
+
+    #navBar {
+        margin-top: 3rem;
+        margin-bottom: 6rem;
+        text-align: center;
+    }
+
+    #navBar a {
+        display: inline-block;
+    }
+
+    #homepage-spacer-top {
+        display: none;
+    }
+
+    #logo-large {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 255%;
+    }
+
+    #sub-text {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        text-align: center;
+        font-size: 100%;
+    }
+
+    #search-bar-main {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    #search-input::placeholder {
+        font-size: 80%;
+    }
+
+    #img-plant-row {
+        padding-bottom: 0rem;
+    }
+
+}
+
+/* media query breakpoints for Large devices (laptops/desktops, 992px and up),*/
+
+@media screen and (max-width: 992px) {
+    #header-top {
+        margin-top: 1em;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
 
 
 
@@ -303,15 +377,3 @@ nav a {
 
 
 /* Suvarna Lines 207 to end of file*/
-
-
-
-
-
-
-
-
-
-
-
-
