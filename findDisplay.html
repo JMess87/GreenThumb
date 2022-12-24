@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><i class="fa fa-life-saver" aria-hidden="true"></i>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Thumb !</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    </style>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+
+    <!-- added header section to show logo and nav options(ZL) -->
+    <header id="header-top" class="container level">
+        <div class="level-left">
+            <a id="logo-small" class="level-item title is-6">GreenThumb</a>
+        </div>
+        <nav class="level-right">
+            <a class="level-item"><button>About</button></a>
+            <a class="level-item"><button>Team Profile </button></a>
+            <a class="level-item">
+                <href="https: //github.com/JMess87/GreenThumb"><button>GitHub</button>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <!-- homepage white spacer top -->
+    <section id="homepage-spacer-top" class="section" style="display: show">
+    </section>
+
+    <!-- main logo and search box section -->
+    <main class="container" id="home-page">
+
+        <!-- set style to "display: none" to hide element -->
+        <section class="columns">
+            <div class="column is-flex is-flex-direction-column">
+                <div class="is-flex is-flex-direction-column is-align-items-flex-center is-align-items-center">
+                    <h1 id="logo-large" class="title is-1">GreenThumb</h1>
+                    <h2 id="sub-text" class="subtitle">Find house plant details to help you care for your foliage friend
+                        !</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="search-bar-main" class="field has-addons has-addons-centered">
+            <div id="input-field" class="control">
+                <input id="search-input" class="input " type="text" placeholder="what plants are you looking for?"
+                    onfocus="this.value=''">
+
+                <!-- drop-down list showing the possible plant names -->
+
+                <ul id="commonnameslist"></ul>
+            </div>
+            <div class="control">
+                <button id="search-btn" class="button">Search</button>
+            </div>
+
+        </section>
+        <!-- section below the search bar left panel has two columns for places -->
+        <div class="tile is-ancestor">
+            <div class="tile is-5 is-vertical is-parent">
+                <div class="tile is-child box">
+                    <p class="title">"Place Holder - Google API Places Results</p>
+                    <div>
+                        <div class="tile is-child box">
+                            <p class="title">Google API Results</p>
+                            <div class="columns">
+                                <div class="column">
+                                    <p> Result 1 </p>
+                                    <p> Result 2 </p>
+                                    <p> Result 3 </p>
+                                    <p> Result 4 </p>
+                                    <p> Result 5 </p>
+                                    <p> Result 6 </p>
+                                    <p> Result 7 </p>
+                                    <p> Result 8 </p>
+                                    <p> Result 9 </p>
+                                    <p> Result 10 </p>
+                                </div>
+                                <div class="column">
+                                    <p> Result 11 </p>
+                                    <p> Result 12 </p>
+                                    <p> Result 13 </p>
+                                    <p> Result 14 </p>
+                                    <p> Result 15 </p>
+                                    <p> Result 16 </p>
+                                    <p> Result 17 </p>
+                                    <p> Result 18 </p>
+                                    <p> Result 19 </p>
+                                    <p> Result 20 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <div class="tile is-child box">
+                    <p class="title">Place Holder for - " Map View"</p>
+                </div>
+            </div>
+        </div>
+        <footer class="modal-card-foot">
+            <button class="button">Cancel</button>
+        </footer>
+
+        </section>
+    </main>
+
+    <!-- homepage white spacer bottom-->
+    <section id="homepage-spacer-btm" class="section" style="display: show"></section>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
