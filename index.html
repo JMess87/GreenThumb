@@ -15,8 +15,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto:wght@100;300;400;500;700;900&display=swap');
     </style>
     <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
@@ -26,11 +26,21 @@
         <div class="level-left">
             <a id="logo-small" class="level-item title is-6">GreenThumb</a>
         </div>
-        <nav class="level-right">
-            <a class="level-item">About</a>
-            <a class="level-item">Contact</a>
-            <a class="level-item">Profile</a>
+
+        <!-- modified navBar button style (ZL) -->
+        <nav id="navBar" class="level-right">
+            <a class="level-item"><button id="about-btn"
+                    class="button is-normal is-primary is-inverted">About</button></a>
+            <a class="level-item"><button id="team-btn"
+                    class="button is-normal is-primary is-inverted">Team</button></a>
+
+            <a class="level-item">
+                <button href="https://github.com/JMess87/GreenThumb" class="button is-normal is-primary is-inverted">
+                    GitHub</button>
+            </a>
         </nav>
+
+
     </header>
 
 
@@ -42,22 +52,22 @@
     <main class="container" id="home-page">
 
         <!-- set style to "display: none" to hide element -->
-        <section class="columns">
-            <div class="column is-flex is-flex-direction-column">
-                <div class="is-flex is-flex-direction-column is-align-items-flex-center is-align-items-center">
+        <section class="columns ">
+            <div class="column is-flex is-flex-direction-column ">
+                <div class="is-flex is-flex-direction-column is-align-items-flex-center is-align-items-center ">
                     <h1 id="logo-large" class="title is-1">GreenThumb</h1>
-                    <h2 id="sub-text" class="subtitle">A simple tool to help you finding home plants</p>
+                    <h2 id="sub-text" class="subtitle">Find house plant details to help you care for your foliage friend
+                        !</p>
                 </div>
             </div>
         </section>
 
         <section id="search-bar-main" class="field has-addons has-addons-centered">
             <div id="input-field" class="control">
-                <input id="search-input" class="input " type="text" placeholder="what plants are you looking for?"
+                <input id="search-input" class="input " type="text" placeholder="What are you looking for?"
                     onfocus="this.value=''">
 
                 <!-- drop-down list showing the possible plant names -->
-
                 <ul id="commonnameslist"></ul>
             </div>
             <div class="control">
@@ -67,45 +77,42 @@
                 <button id="filter-btn" class="button">Filter</button>
             </div>
         </section>
+    </main>
+
+    <!-- filter buttons section, set style to "display:hide" or "display:show" to hide and show filter buttons -->
+    <section id="filter-box" class="buttons is-grouped is-centered" style="display:none;">
+        <p class="control mt-2">
+            <button id="hanging" class="button is-small is-rounded">Hanging</button>
+        </p>
+        <p class="control mt-2">
+            <button id="fern" class="button is-small is-rounded is-outlined">Fern</button>
+        </p>
+        <p class="control mt-2">
+            <button id="succulent" class="button is-small is-rounded is-outlined">Cactus and Succulent</button>
+        </p>
+        <p class="control mt-2">
+            <button id="flower" class="button is-small is-rounded is-outlined">Flower</button>
+        </p>
+        <p class="control mt-2">
+            <button id="foliagePlant" class="button is-small is-rounded is-outlined">Foliage</button>
+        </p>
+        <p class="control mt-2">
+            <button id="palm" class="button is-small is-rounded is-outlined">Palm</button>
+        </p>
+    </section>
 
 
-        <!-- filter buttons section, set style to "display:hide" or "display:show" to hide and show filter buttons -->
+    <!-- homepage white spacer bottom-->
+    <section id="homepage-spacer-btm" class="section" style="display: show"></section>
 
-        <section id="filter-box" class="buttons is-grouped is-centered" style="display:none;">
-            <p class="control mt-2">
-                <button id="hanging" class="button is-small is-rounded">Hanging</button>
-            </p>
-            <p class="control mt-2">
-                <button id="fern" class="button is-small is-rounded is-outlined">Fern</button>
-            </p>
-            <p class="control mt-2">
-                <button id="succulent" class="button is-small is-rounded is-outlined">Cactus and Succulent</button>
-            </p>
-            <p class="control mt-2">
-                <button id="flower" class="button is-small is-rounded is-outlined">Flower</button>
-            </p>
-            <p class="control mt-2">
-                <button id="foliagePlant" class="button is-small is-rounded is-outlined">Foliage</button>
-            </p>
-            <p class="control mt-2">
-                <button id="palm" class="button is-small is-rounded is-outlined">Palm</button>
-            </p>
-        </section>
-
-
-        <!-- homepage white spacer bottom-->
-        <section id="homepage-spacer-btm" class="section" style="display: show"></section>
-
-        <div class="container" style="display: show">
-            <div class="notification has-background-white has-text-left	">
-                6 results for <strong>plant common name</strong> in the database:
-            </div>
+    <div class="container" style="display: show">
+        <div id="result-number-text" class="notification has-background-white has-text-left	">
         </div>
+    </div>
 
-        <!-- search result card section below -->
-        <section class="columns is-multiline is-centered ">
-
-            <section class="column is-4">
+    <!-- search result card section below -->
+    <section id="plant-card-container" class="columns is-multiline is-centered mx-2">
+        <!-- <section class="column is-4">
                 <section class="card">
                     <div class="card-image">
                         <figure class="result-image image is-4by3">
@@ -121,166 +128,197 @@
                         </div>
                     </div>
                 </section>
-            </section>
+            </section> -->
+    </section>
 
-            <section class="column is-4">
-                <section class="card">
-                    <div class="card-image">
-                        <figure class="result-image image is-4by3">
-                            <img src="./images/airplant-1.jpeg" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Plant Common Name</p>
-                                <p class="subtitle is-6">Plant Latin Name</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
+    <!-- plant image shown on the bottom of the homepage -->
+    <section id="img-plant-row" class="section mt-6 pt-3" style="display: show">
+        <img src="./images/Plant-btm.png" alt="potted-plants-bottom">
+    </section>
 
-            <section class="column is-4">
-                <section class="card">
-                    <div class="card-image">
-                        <figure class="result-image image is-4by3">
-                            <img src="./images/cactus-1.jpeg" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Plant Common Name</p>
-                                <p class="subtitle is-6">Plant Latin Name</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <section class="column is-4">
-                <section class="card">
-                    <div class="card-image">
-                        <figure class="result-image image is-4by3">
-                            <img src="http://www.tropicopia.com/house-plant/thumbnails/5626.jpg"
-                                alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Plant Common Name</p>
-                                <p class="subtitle is-6">Plant Latin Name</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <section class="column is-4">
-                <section class="card">
-                    <div class="card-image">
-                        <figure class="result-image image is-4by3">
-                            <img src="http://www.tropicopia.com/house-plant/thumbnails/5627.jpg"
-                                alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Plant Common Name</p>
-                                <p class="subtitle is-6">Plant Latin Name</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <section class="column is-4">
-                <section class="card">
-                    <div class="card-image">
-                        <figure class="result-image image is-4by3">
-                            <img src="http://www.tropicopia.com/house-plant/thumbnails/5628.jpg"
-                                alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Plant Common Name</p>
-                                <p class="subtitle is-6">Plant Latin Name</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-        </section>
-
-        <!-- plant image shown on the bottom of the homepage -->
-        <section class="container mt-6 pt-3" style="display: none">
-            <img src="./images/Plant-btm.png" alt="potted-plants-bottom">
-        </section>
-
-
-        <!-- remove "is-active" class in JS to hide this information card overlay or add "is-active" class to show -->
-        <section id="plantdetails" class="modal">
+    <!-- About remove "is-active" class in JS to hid this informaiton card overlay or add "is-active" class to show -->
+    <main>
+        <section id="about" class="modal">
             <div class="modal-background"></div>
             <div class="modal-card" id="modal-card-box">
                 <header class="modal-card-head">
                     <ul
                         class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
-                        <li id="commonname" class="info-plant-name-lg title is-3">Plant Name</li>
-                        <li id="latinname" class="info-plant-name-sm subtitle is-6">Plant Latin Name</li>
+                        <li id="info-plant-name-lg" class="title is-3">About Green Thumb</li>
+                        <li id="info-plant-name-sm" class="subtitle is-6">Our Vision and Mission</li>
                     </ul>
                     <button class="delete" aria-label="close"></button>
                 </header>
 
-                <section class="modal-card-body has-background-white">
+                <section class="modal-card-body">
 
-                    <figure class="result-image image is-16by9">
-                        <img id="plantimage" src="https://hicksnurseries.com/wp-content/uploads/2019/04/succulents_shutterstock_286576340-copy.jpg"
-                            alt="placeholder-img">
-                    </figure>
-
-                    <div class="columns mt-3 ">
-                        <div class="column is-flex is-flex-direction-column is-align-items-center">
-                            <ul class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
-                                <li class="info-subtitle  ">Category</li>
-                                <li id="category">Category description</li>
+                    <div class="columns mt-3">
+                        <div class="column">
+                            <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                                <li class="info-subtitle">Vision</li>
+                                <p> To enable all plant owners to meet their full "growth" potential. Allowing
+                                    all homes
+                                    to be covered in foliage that is properly cared for and vibrant!</p>
                             </ul>
-                            <ul class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
-                                <li class="info-subtitle">Sunlight</li>
-                                <li id="ideallight">Sunlight description</li>
+                            <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                                <li class="info-subtitle">Mission</li>
+                                <p>Mission description</p>
                             </ul>
-                            <ul class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
-                                <li class="info-subtitle">Watering</li>
-                                <li id="watering">Watering description</li>
-                            </ul>
-                            <ul class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
-                                <li class="info-subtitle">Use</li>
-                                <li id="use">Usage description</li>
-                            </ul>
-                            <ul class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
-                                <li class="info-subtitle">Temperature</li>
-                                <li id="tempmax">Max Temperature description</li>
-                                <li id="tempmin">Min Temperature description</li>
-                            </ul>
-                            <ul class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
-                                <li class="info-subtitle">Climate</li>
-                                <li id="climate">Climate description</li>
+                            <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                                <li class="info-subtitle">What we deliver</li>
+                                <p>Product summary and how it meets our vision and mission</p>
                             </ul>
                         </div>
+                </section>
+    </main>
+
+    <!-- remove "is-active" class in JS to hide this information card overlay or add "is-active" class to show -->
+    <section id="plantdetails" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card" id="modal-card-box">
+            <header class="modal-card-head">
+                <ul
+                    class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
+                    <p id="commonname" class="info-plant-name-lg title is-4">Plant Name</p>
+                    <p id="latinname" class="info-plant-name-sm subtitle is-6">Plant Latin Name</p>
+                </ul>
+                <button id="delete-btn" class="delete" aria-label="close"></button>
+            </header>
+
+            <section class="modal-card-body has-background-white">
+
+                <figure class="result-image image is-5by3">
+                    <img id="plantimage" alt="placeholder-img">
+                </figure>
+
+                <div class="columns mt-3 ">
+                    <div class="column is-flex is-flex-direction-column is-align-items-center">
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle  ">Category</p>
+                            <p id="category">Category description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Sunlight</p>
+                            <p id="ideallight">Sunlight description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Watering</p>
+                            <p id="watering">Watering description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Use</p>
+                            <p id="use">Usage description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Temperature</p>
+                            <p id="tempmax">Max Temperature description</p>
+                            <p id="tempmin">Min Temperature description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Climate</p>
+                            <p id="climate">Climate description</p>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+            <footer class="modal-card-foot">
+                <button id="find-btn" class="button is-success">Find Me</button>
+                <button id='plant-cancel-btn' class="button">Cancel</button>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Find Display section below (JM) -->
+
+
+    <section id="findDisplay" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card" id="modal-card-box">
+
+
+            <section class="modal-card-body has-background-white">
+                <ul
+                    class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
+                    <p id="commonname" class="info-plant-name-lg title is-3">Map Display</p>
+                    <p id="latinname" class="info-plant-name-sm subtitle is-6">Map Display</p>
+                </ul>
+
+                <section id="search-bar-main" class="field has-addons has-addons-centered">
+                    <div id="input-field" class="control">
+                        <input id="search-input" class="input " type="text" placeholder="Enter Zip Code ?"
+                            onfocus="this.value=''">
+
+                        <!-- drop-down list showing the possible plant names -->
+
+                        <ul id="commonnameslist"></ul>
+                    </div>
+                    <div class="control">
+                        <button id="search-btn" class="button">Search</button>
                     </div>
 
                 </section>
-                <footer class="modal-card-foot">
-                    <button id="find-btn" class="button is-success">Find Me</button>
-                    <button class="button">Cancel</button>
-                </footer>
-            </div>
-        </section>
-    </main>
+
+                <div class="tile is-ancestor">
+                    <div class="tile is-5 is-vertical is-parent">
+                        <div class="tile is-child box">
+                            <p class="title">"Place Holder - Google API Places Results</p>
+                            <div>
+                                <div class="tile is-child box">
+                                    <p class="title">Google API Results</p>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <p> Result 1 </p>
+                                            <p> Result 2 </p>
+                                            <p> Result 3 </p>
+                                            <p> Result 4 </p>
+                                            <p> Result 5 </p>
+                                            <p> Result 6 </p>
+                                            <p> Result 7 </p>
+                                            <p> Result 8 </p>
+                                            <p> Result 9 </p>
+                                            <p> Result 10 </p>
+                                        </div>
+                                        <div class="column">
+                                            <p> Result 11 </p>
+                                            <p> Result 12 </p>
+                                            <p> Result 13 </p>
+                                            <p> Result 14 </p>
+                                            <p> Result 15 </p>
+                                            <p> Result 16 </p>
+                                            <p> Result 17 </p>
+                                            <p> Result 18 </p>
+                                            <p> Result 19 </p>
+                                            <p> Result 20 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child box">
+                            <p class="title">Place Holder for - " Map View"</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button">Cancel</button>
+            </footer>
+        </div>
+        </div>
+    </section>
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./script.js"></script>
 </body>

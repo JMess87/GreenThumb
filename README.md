@@ -17,16 +17,20 @@ Plant Database 2 -
 https://rapidapi.com/mnai01/api/house-plants2/
 
 Google Place APIs - 
-Good Image APIs - 
-Serp APIs
-
-
 
 Roles: 
-PM: Jennilee
-JavaScript: Brian / Suvarna
-Wireframe: Zhihao
-CSS: Jennilee / Zhihao
-HTML: Brian / Suvarna
-API: All 
-PPT: Zhihao / Jennilee
+
+Jennilee: Team Lead , APIs, CSS Custom, CSS Bulma , Carousel , JS, HTML
+Brian: Google Places API (and Entire Section, Map places display, marquee and pin drops, JS, HTML)
+Suvarna: House Plants 1 and 2 (Compare Latin Name and Common Name pull pictures), JS, HTML, CSS 
+Zhihao: Wireframe , CSS Bulma , Main Homepage window , results cards, CSS Bulma, CSS Custom, JS, HTML
+
+
+Project Management Tools: 
+Figma - Created a collaborative space to plan out the entire project, take notes, vote on ideas, and organize deliverables.
+
+
+Resources:
+
+Carousel: https://webdesign.tutsplus.com/tutorials/how-to-build-a-simple-carousel-with-vanilla-javascript--cms-41734
+Marquee Structure: https://www.geeksforgeeks.org/create-the-marquee-text-effect-using-javascript/
