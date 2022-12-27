@@ -240,7 +240,7 @@ nav a {
 /* Marquee Style */
 #marquee1{
     border: 1px solid;
-    border-radius: 10rem;
+    border-radius: 5rem;
     color: white;
     background-color: var(--dark-green);
     width: 50%;
@@ -254,3 +254,5 @@ nav a {
     clear: both;
     float: left;
   }
+
+  /* add Media Query for 1440 to fix right side gap
