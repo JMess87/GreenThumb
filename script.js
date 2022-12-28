@@ -153,7 +153,7 @@ function getAllCommonNames() {
                         foliageArray(data[i].common, latinName);
                         break;
                     case 'Palm':
-                        palmArray(data[i].common, latinName);
+                        palmArray(data[i].common, latinName);F
                         break;
                 }
             }
@@ -361,7 +361,7 @@ $('#delete-btn').click(function (e) {
 });
 
 $('#plant-cancel-btn').click(function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     plantDetails.removeClass('is-active');
 });
 
@@ -451,9 +451,3 @@ function animate(element) {
         }
     },20);
 }
-
-// Find Button
-
-$('#findBtn').click(function() {
-  window.location='findDisplay.html';
-});
