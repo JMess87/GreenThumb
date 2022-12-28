@@ -237,22 +237,33 @@ nav a {
         margin-right: 1rem;
     }
 }
+
 /* Marquee Style */
 #marquee1{
     border: 1px solid;
-    border-radius: 5rem;
+    /* border-radius: 2rem; */
     color: white;
-    background-color: var(--dark-green);
-    width: 50%;
+    background-color: var(--medium-green);
+    width: 60%;
     overflow: hidden;
-   }
+}
 
-  .marquee{
+.marquee{
     color: black;
     font-weight: bold;
     white-space: nowrap;
     clear: both;
     float: left;
-  }
+}
 
-  /* add Media Query for 1440 to fix right side gap
+#scroll {
+        margin:4px, 4px;
+        padding:4px;
+        width: 500px;
+        height: 20rem;
+        overflow-y: scroll;
+        text-align:justify;
+    }
+
+
+/* add Media Query for 1440 to fix right side gap
