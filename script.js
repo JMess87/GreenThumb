@@ -4,6 +4,7 @@ var search = $('#search-btn');
 var categoryFilter = $('#filter-box');
 var commonNamesList = $('#commonnameslist');
 var searchButton = $('#search');
+var findBtn = $('#find-btn');
 var plantDetails = $('#plantdetails');
 var family = $('#family');
 var common = $('#commonname');
@@ -450,3 +451,9 @@ function animate(element) {
         }
     },20);
 }
+
+// Find Button
+
+$('#findBtn').click(function() {
+  window.location='findDisplay.html';
+});
