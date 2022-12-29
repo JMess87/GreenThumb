@@ -229,98 +229,12 @@
 
             </section>
             <footer class="modal-card-foot">
-                <button id="find-btn" class="button is-success">Find Me</button>
+                <button id="find-btn" class="button is-success"><a href="findDisplay.html">Find</a></button>
                 <button id='plant-cancel-btn' class="button">Cancel</button>
             </footer>
         </div>
     </section>
-
-    <!-- Find Display section below (JM) -->
-
-
-    <section id="findDisplay" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card" id="modal-card-box">
-
-
-            <section class="modal-card-body has-background-white">
-                <ul
-                    class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
-                    <p id="commonname" class="info-plant-name-lg title is-3">Map Display</p>
-                    <p id="latinname" class="info-plant-name-sm subtitle is-6">Map Display</p>
-                </ul>
-
-                <section id="search-bar-main" class="field has-addons has-addons-centered">
-                    <div id="input-field" class="control">
-                        <input id="search-input" class="input " type="text" placeholder="Enter Zip Code ?"
-                            onfocus="this.value=''">
-
-                        <!-- drop-down list showing the possible plant names -->
-
-                        <ul id="commonnameslist"></ul>
-                    </div>
-                    <div class="control">
-                        <button id="search-btn" class="button">Search</button>
-                    </div>
-
-                </section>
-
-                <div class="tile is-ancestor">
-                    <div class="tile is-5 is-vertical is-parent">
-                        <div class="tile is-child box">
-                            <p class="title">"Place Holder - Google API Places Results</p>
-                            <div>
-                                <div class="tile is-child box">
-                                    <p class="title">Google API Results</p>
-                                    <div class="columns">
-                                        <div class="column">
-                                            <p> Result 1 </p>
-                                            <p> Result 2 </p>
-                                            <p> Result 3 </p>
-                                            <p> Result 4 </p>
-                                            <p> Result 5 </p>
-                                            <p> Result 6 </p>
-                                            <p> Result 7 </p>
-                                            <p> Result 8 </p>
-                                            <p> Result 9 </p>
-                                            <p> Result 10 </p>
-                                        </div>
-                                        <div class="column">
-                                            <p> Result 11 </p>
-                                            <p> Result 12 </p>
-                                            <p> Result 13 </p>
-                                            <p> Result 14 </p>
-                                            <p> Result 15 </p>
-                                            <p> Result 16 </p>
-                                            <p> Result 17 </p>
-                                            <p> Result 18 </p>
-                                            <p> Result 19 </p>
-                                            <p> Result 20 </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tile is-parent">
-                        <div class="tile is-child box">
-                            <p class="title">Place Holder for - " Map View"</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button">Cancel</button>
-            </footer>
-        </div>
-        </div>
-    </section>
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./script.js"></script>
 </body>
-
 </html>

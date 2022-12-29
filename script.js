@@ -4,6 +4,7 @@ var search = $('#search-btn');
 var categoryFilter = $('#filter-box');
 var commonNamesList = $('#commonnameslist');
 var searchButton = $('#search');
+var findBtn = $('#find-btn');
 var plantDetails = $('#plantdetails');
 var family = $('#family');
 var common = $('#commonname');
@@ -152,7 +153,7 @@ function getAllCommonNames() {
                         foliageArray(data[i].common, latinName);
                         break;
                     case 'Palm':
-                        palmArray(data[i].common, latinName);
+                        palmArray(data[i].common, latinName);F
                         break;
                 }
             }
@@ -360,7 +361,7 @@ $('#delete-btn').click(function (e) {
 });
 
 $('#plant-cancel-btn').click(function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     plantDetails.removeClass('is-active');
 });
 
