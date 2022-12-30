@@ -260,10 +260,16 @@ nav a {
         margin:4px, 4px;
         padding:4px;
         width: 500px;
-        height: 20rem;
+        height: 25rem;
         overflow-y: scroll;
         text-align:justify;
     }
 
 
-/* add Media Query for 1440 to fix right side gap
+/* add Media Query for 1440 to fix right side gap */
+
+
+#map {
+    height: 30rem; 
+    width: 40vw;
+}
