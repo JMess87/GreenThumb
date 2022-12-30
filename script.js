@@ -44,6 +44,7 @@ var cactusPlantsArr = [];
 var flowerPlantsArr = [];
 var foliagePlantsArr = [];
 var palmPlantsArr = [];
+
 const marquee1 = document.getElementById('marquee1');
 
 
@@ -119,13 +120,12 @@ filter.click(function (e) {
         $('#plant-card-container').empty();
         $('#result-number-text').text('');
         $('#homepage-spacer-btm').attr('style', 'display:show');
-        $('#img-plant-row').attr('style', 'display:show');
+        $('#img-plant-row').attr('style', 'display:show');o
         $('#search-input').val('');
         // reset the plants name array to include all plants for search input
         allPlantsInThisCategory(allPlantsCommonLatinNames);
     };
 })
-
 function getAllCommonNames() {
     fetch('https://house-plants.p.rapidapi.com/all', options)
         .then(function (response) {
