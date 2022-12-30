@@ -237,39 +237,31 @@ nav a {
         margin-right: 1rem;
     }
 }
-
 /* Marquee Style */
 #marquee1{
     border: 1px solid;
-    /* border-radius: 2rem; */
+    border-radius: 5rem;
     color: white;
-    background-color: var(--medium-green);
-    width: 60%;
+    background-color: var(--dark-green);
+    width: 50%;
     overflow: hidden;
-}
+   }
 
-.marquee{
+  .marquee{
     color: black;
     font-weight: bold;
     white-space: nowrap;
     clear: both;
     float: left;
-}
+  }
 
-#scroll {
-        margin:4px, 4px;
-        padding:4px;
-        width: 500px;
-        height: 25rem;
-        overflow-y: scroll;
-        text-align:justify;
-    }
-
-
-/* add Media Query for 1440 to fix right side gap */
-
-
-#map {
-    height: 30rem; 
-    width: 40vw;
-}
+  .placeName {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dark-green);
+  }
+  .placeAddress , .placePhone , .placeWebsite , .placeRating {
+    font-size: .9rem;
+    color: var(--medium-green);
+  }
+  /* add Media Query for 1440 to fix right side gap

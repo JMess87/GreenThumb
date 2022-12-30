@@ -596,7 +596,7 @@ function findPlace() {
             };
             service1 = new google.maps.places.PlacesService(map);
             service1.getDetails(request2, lvl2callback);
-  
+          },i * 250); //
             function lvl2callback(level2results, status) {
               if (status == google.maps.places.PlacesServiceStatus.OK) {
                 console.log(level2results);
@@ -606,52 +606,76 @@ function findPlace() {
                 level2ResultsG[i].formatted_phone_number;
               combineResultsG[i].website = level2ResultsG[i].website;
               combineResultsG[i].rating = level2ResultsG[i].rating;
-              createMarker(i);
+            //   createMarker(i);
               domManipPlaces(i);
               resolve();
             }
-          }, i * 250); // delay by .25 seconds for each iteration
+          
         });
   
         level2Promises.push(p);
       }
   
-      Promise.all(level2Promises).then(combineResults);
+      Promise.all(level2Promises).then();
     });
   }
-  function createMarker(i) {
-    var place = level1ResultsG[i];
+//   function createMarker(i) {
+//     var place = level1ResultsG[i];
+//     var placeLoc = place.geometry.location;
+//     var marker = new google.maps.Marker({
+//       map: map,
+//       animation: google.maps.Animation.DROP,
+//       position: placeLoc,
+//     });
+// }
+
+function domManipPlaces(i) {
+    var place = combineResultsG[i];
+    if (place.name == undefined || place.formatted_address == undefined || place.formatted_phone_number == undefined || place.website == undefined || place.rating == undefined) {
+      return;
+    }
+  
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
       map: map,
       animation: google.maps.Animation.DROP,
       position: placeLoc,
     });
-}
-
-function domManipPlaces(i) {
-    var cardId = `card${i}`;
-    var $card = $(`#${cardId}`);
   
-    $card.find("#title").replaceWith("<h3>" + combineResultsG[i].name + "</h3>");
-    $card
-      .find("#address")
-      .replaceWith("<p>" + combineResultsG[i].formatted_address + "<p>");
-    $card
-      .find("#phone")
-      .replaceWith("<p>" + combineResultsG[i].formatted_phone_number + "<p>");
-    $card.find("#site").replaceWith("<p>" + combineResultsG[i].website + "<p>");
-    $card
-      .find("#rating")
-      .replaceWith(
-        "<p>" +
-          combineResultsG[i].rating +
-          " /5" +
-          " of " +
-          combineResultsG[i].user_ratings_total +
-          " reviews" +
-          "<p>"
-      );
+    var placeDiv = $("<div>", { class: "place", id: "place" + i });
+    var placeName = $("<h2>", { class: "placeName" }).html(place.name);
+    var placeAddress = $("<p>", { class: "placeAddress" }).html(place.formatted_address);
+    var placePhone = $("<p>", { class: "placePhone" }).html(place.formatted_phone_number);
+    var placeWebsite = $("<a>", {
+      class: "placeWebsite",
+      href: place.website,
+      title: place.website,
+      target: "_blank",
+    }).html("Website") + $("<i>", { class: "fa-solid fa-arrow-up-right-from-square" });
+    var placeRating = $("<p>", { class: "placeRating" }).html(place.rating + "/5" + " of " + place.user_ratings_total + " ratings");
+  
+    placeDiv.append(placeName, placeAddress, placePhone, placeWebsite, placeRating);
+  
+    // Find the div with the highest rating
+    var highestRatedDiv = null;
+    var highestRating = -1;
+    $(".place").each(function() {
+      var ratingScore = place.user_ratings_total * place.rating;
+      console.log(place.user_ratings_total)
+      console.log(place.rating)
+      console.log(ratingScore)
+      if (ratingScore > highestRating) {
+        highestRatedDiv = $(this);
+        highestRating = ratingScore;
+      }
+    });
+  
+    // If the current place has a higher rating, insert it before the highest rated div
+    if (highestRatedDiv == null || place.rating > highestRating) {
+      $("#places").prepend(placeDiv);
+    } else {
+      highestRatedDiv.after(placeDiv);
+    }
   }
   
 
