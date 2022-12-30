@@ -651,7 +651,7 @@ function domManipPlaces(i) {
       href: place.website,
       title: place.website,
       target: "_blank",
-    }).html("Website") + $("<i>", { class: "fa-solid fa-arrow-up-right-from-square" });
+    }).html("Website");
     var placeRating = $("<p>", { class: "placeRating" }).html(place.rating + "/5" + " of " + place.user_ratings_total + " ratings");
   
     placeDiv.append(placeName, placeAddress, placePhone, placeWebsite, placeRating);
