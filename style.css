@@ -244,7 +244,7 @@ nav a {
     /* border-radius: 2rem; */
     color: white;
     background-color: var(--medium-green);
-    width: 60%;
+    width: auto;
     overflow: hidden;
 }
 
@@ -254,6 +254,7 @@ nav a {
     white-space: nowrap;
     clear: both;
     float: left;
+   
 }
 
 .placeName {
@@ -270,7 +271,7 @@ nav a {
         margin:4px, 4px;
         padding:4px;
         width: 500px;
-        height: 20rem;
+        height: 36rem;
         overflow-y: scroll;
         text-align:justify;
     }
