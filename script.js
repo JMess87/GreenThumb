@@ -44,7 +44,6 @@ var cactusPlantsArr = [];
 var flowerPlantsArr = [];
 var foliagePlantsArr = [];
 var palmPlantsArr = [];
-
 const marquee1 = document.getElementById('marquee1');
 
 
@@ -451,3 +450,233 @@ function animate(element) {
         }
     },20);
 }
+
+
+
+
+// -------------------------------------------------------------------------- // 
+// Brian - JS for Map and Store Locator //
+
+window.map = undefined;
+var geocoder;
+var map;
+var latitude = 0;
+var longitude = 0;
+
+var infowindow;
+var storeArray;
+let level1ResultsG = [];
+let level2ResultsG = [];
+let combineResultsG;
+let placeID;
+
+
+function initMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(0, 0),
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+    };
+    window.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    console.log("init map");
+}
+
+function updateMap() {
+    console.log("update map");
+    console.log(latitude, longitude);
+    var center = new google.maps.LatLng(latitude, longitude);
+    window.map.panTo(center);
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                latitude = position.coords.latitude;
+                longitude = position.coords.longitude;
+                updateMap();
+                findPlace();
+            },
+
+            (error) => {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        zipInfoWindow();
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        zipInfoWindow();
+                        break;
+                    case error.TIMEOUT:
+                        zipInfoWindow();
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        zipInfoWindow();
+                        break;
+                }
+            }
+        );
+
+    }
+}
+
+function zipInfoWindow() {
+    const zipInfoWindowContentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h1 id="firstHeading" class="firstHeading">Please Enter Your Zip Code</h1>' +
+        '<div id="bodyContent">' +
+        '<input type="text" id="zipField" placeholder="Zip Code">' +
+        '<button id="zipButton" onclick="zipCode(), zipInfoWindow.close()"  class="button is-success">Submit</button>';
+
+    const zipInfoWindow = new google.maps.InfoWindow({
+
+        content: zipInfoWindowContentString,
+        position: { lat: 0, lng: 0 },
+        maxWidth: 200
+    });
+    zipInfoWindow.open(map);
+    console.log("zip info window");
+}
+
+
+function zipCode() {
+    geocoder = new google.maps.Geocoder();
+    var address = document.getElementById("zipField").value;
+    geocoder.geocode({ address: address }, function (results, status) {
+        if (status == "OK") {
+            console.log(results);
+            latitude = results[0].geometry.location.lat();
+            longitude = results[0].geometry.location.lng();
+            console.log("lat: " + latitude + " lng: " + longitude + "geo success");
+            updateMap();
+            findPlace();
+        } else {
+            alert("Geocode was not successful for the following reason: " + status);
+        }
+    });
+}
+
+function findPlace() {
+    let level1Promise = new Promise((resolve) => {
+        var request = {
+            location: new google.maps.LatLng(latitude, longitude),
+            radius: "5000",
+            query: "plant nursery",
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, lvl1callback);
+
+        function lvl1callback(level1Results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                console.log(level1Results);
+                level1ResultsG = level1Results;
+            }
+            combineResultsG = level1ResultsG;
+
+            resolve();
+        }
+    });
+    level1Promise.then(() => {
+        let level2Promises = [];
+        for (let i = 0; i < level1ResultsG.length; i++) {
+            let p = new Promise((resolve) => {
+                setTimeout(() => {
+                    var request2 = {
+                        placeId: level1ResultsG[i].place_id,
+                        fields: [
+                            "name",
+                            "rating",
+                            "formatted_phone_number",
+                            "geometry",
+                            "website",
+                        ],
+                    };
+                    service1 = new google.maps.places.PlacesService(map);
+                    service1.getDetails(request2, lvl2callback);
+                }, i * 250); //
+                function lvl2callback(level2results, status) {
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                        console.log(level2results);
+                        level2ResultsG.push(level2results);
+                    }
+                    combineResultsG[i].formatted_phone_number =
+                        level2ResultsG[i].formatted_phone_number;
+                    combineResultsG[i].website = level2ResultsG[i].website;
+                    combineResultsG[i].rating = level2ResultsG[i].rating;
+                    //   createMarker(i);
+                    domManipPlaces(i);
+                    resolve();
+                }
+
+            });
+
+            level2Promises.push(p);
+        }
+
+        Promise.all(level2Promises).then();
+    });
+}
+//   function createMarker(i) {
+//     var place = level1ResultsG[i];
+//     var placeLoc = place.geometry.location;
+//     var marker = new google.maps.Marker({
+//       map: map,
+//       animation: google.maps.Animation.DROP,
+//       position: placeLoc,
+//     });
+// }
+
+function domManipPlaces(i) {
+    var place = combineResultsG[i];
+    if (place.name == undefined || place.formatted_address == undefined || place.formatted_phone_number == undefined || place.website == undefined || place.rating == undefined) {
+        return;
+    }
+
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        animation: google.maps.Animation.DROP,
+        position: placeLoc,
+    });
+
+    var placeDiv = $("<div>", { class: "place", id: "place" + i });
+    var placeName = $("<h2>", { class: "placeName" }).html(place.name);
+    var placeAddress = $("<p>", { class: "placeAddress" }).html(place.formatted_address);
+    var placePhone = $("<p>", { class: "placePhone" }).html(place.formatted_phone_number);
+    var placeWebsite = $("<a>", {
+        class: "placeWebsite",
+        href: place.website,
+        title: place.website,
+        target: "_blank",
+    }).html("Website");
+    var placeRating = $("<p>", { class: "placeRating" }).html(place.rating + "/5" + " of " + place.user_ratings_total + " ratings");
+
+    placeDiv.append(placeName, placeAddress, placePhone, placeWebsite, placeRating);
+
+    // Find the div with the highest rating
+    var highestRatedDiv = null;
+    var highestRating = -1;
+    $(".place").each(function () {
+        var ratingScore = place.user_ratings_total * place.rating;
+        console.log(place.user_ratings_total)
+        console.log(place.rating)
+        console.log(ratingScore)
+        if (ratingScore > highestRating) {
+            highestRatedDiv = $(this);
+            highestRating = ratingScore;
+        }
+    });
+
+    // If the current place has a higher rating, insert it before the highest rated div
+    if (highestRatedDiv == null || place.rating > highestRating) {
+        $("#places").prepend(placeDiv);
+    } else {
+        highestRatedDiv.after(placeDiv);
+    }
+}
+
+
+window.initMap = initMap;

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
-<body>
+<body onload="getLocation()">
 
     <!-- added header section to show logo and nav options(ZL) -->
     <header id="header-top" class="container level">
@@ -38,7 +38,7 @@
             </a>
         </nav>
     </header>
-<!-- Scrolling Marquee -->
+    <!-- Scrolling Marquee -->
 
 
 
@@ -72,103 +72,26 @@
             </div>
         </section>
 
-            <div id="marquee">
-    <p class="marquee" style id="marquee1">
-        Disclaimer: Please contact the store directly to see if they have your desired house plant in stock !
-    </p>
-</div>
-    <br><br>
+        <div id="marquee">
+            <p class="marquee" style id="marquee1">
+                Disclaimer: Please contact the store directly to see if they have your desired house plant in stock !
+            </p>
+        </div>
+        <br><br>
+
+
+
 
         <!-- section below the search bar left panel has two columns for places -->
         <div class="tile is-ancestor">
             <div class="tile is-5 is-vertical is-parent">
                 <div class="tile is-child box">
-                    <p class="title">"Place Holder - Google API Places Results</p>
+                    <p class="title">Garden Stores Near You:</p>
                     <div>
                         <div class="tile is-child box">
-                            <p class="title">Google API Results</p>
                             <div class="columns" id="scroll">
-                                <div class="column">
-                                    <p> Result 1a </p>
-                                    <p> Result 1b </p>
-                                    <p> Result 1c </p>
-                                    <p> Result 1d </p>
-                                    <p> Result 2a </p>
-                                    <p> Result 2b </p>
-                                    <p> Result 2c </p>
-                                    <p> Result 2d </p>
-                                    <p> Result 3a </p>
-                                    <p> Result 3b </p>
-                                    <p> Result 3c </p>
-                                    <p> Result 3d </p>
-                                    <p> Result 4a </p>
-                                    <p> Result 4b </p>
-                                    <p> Result 4c </p>
-                                    <p> Result 4d </p>
-                                    <p> Result 5a </p>
-                                    <p> Result 5b </p>
-                                    <p> Result 5c </p>
-                                    <p> Result 5d </p>
-                                    <p> Result 6a </p>
-                                    <p> Result 6b </p>
-                                    <p> Result 6c </p>
-                                    <p> Result 6d </p>
-                                    <p> Result 7a </p>
-                                    <p> Result 7b </p>
-                                    <p> Result 7c </p>
-                                    <p> Result 7d </p>
-                                    <p> Result 8a </p>
-                                    <p> Result 8b </p>
-                                    <p> Result 8c </p>
-                                    <p> Result 8d </p>
-                                    <p> Result 9a </p>
-                                    <p> Result 9b </p>
-                                    <p> Result 9c </p>
-                                    <p> Result 9d </p>
-                                    <p> Result 10a </p>
-                                    <p> Result 10b </p>
-                                    <p> Result 10c </p>
-                                    <p> Result 10d </p>
-                                    <p> Result 11a </p>
-                                    <p> Result 11b </p>
-                                    <p> Result 11c </p>
-                                    <p> Result 11d </p>
-                                    <p> Result 12a </p>
-                                    <p> Result 12b </p>
-                                    <p> Result 12c </p>
-                                    <p> Result 12d </p>
-                                    <p> Result 13a </p>
-                                    <p> Result 13b </p>
-                                    <p> Result 13c </p>
-                                    <p> Result 13d </p>
-                                    <p> Result 14a </p>
-                                    <p> Result 14b </p>
-                                    <p> Result 14c </p>
-                                    <p> Result 14d </p>
-                                    <p> Result 15a </p>
-                                    <p> Result 15b </p>
-                                    <p> Result 15c </p>
-                                    <p> Result 15d </p>
-                                    <p> Result 16a </p>
-                                    <p> Result 16b </p>
-                                    <p> Result 16c </p>
-                                    <p> Result 16d </p>
-                                    <p> Result 17a </p>
-                                    <p> Result 17b </p>
-                                    <p> Result 17c </p>
-                                    <p> Result 17d </p>
-                                    <p> Result 18a </p>
-                                    <p> Result 18b </p>
-                                    <p> Result 18c </p>
-                                    <p> Result 18d </p>
-                                    <p> Result 19a </p>
-                                    <p> Result 19b </p>
-                                    <p> Result 19c </p>
-                                    <p> Result 19d </p>
-                                    <p> Result 20a </p>
-                                    <p> Result 20b </p>
-                                    <p> Result 20c </p>
-                                    <p> Result 20d </p>
+                                <div class="column" id="places">
+
                                 </div>
                             </div>
                         </div>
@@ -177,12 +100,15 @@
             </div>
             <div class="tile is-parent">
                 <div class="tile is-child box">
-                    <p class="title">Place Holder for - "Map View"</p>
+                    <div style="height: 70vh; width: 53vw;" id="map"></div>
                 </div>
             </div>
         </div>
         <footer class="modal-card-foot">
-            <button id='plant-cancel-btn' class="button is-success" onclick="window.location='index.html';"> Cancel</button>
+            <footer class="modal-card-foot">
+                <button id='plant-cancel-btn' class="button is-success" onclick="window.location='index.html';"> Cancel</button>
+                <button onclick="getLocation()" class="button is-success">Get Location</button>
+            </footer>
             
         </footer>
 
@@ -194,6 +120,10 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD89FHdaJFfwL4dY8xvaY5CAN36t8-iJ1I&libraries=places&callback=initMap"></script>
+
+
     <script src="./script.js"></script>
 </body>
 
