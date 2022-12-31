@@ -451,9 +451,6 @@ function animate(element) {
     },20);
 }
 
-
-
-
 // -------------------------------------------------------------------------- // 
 // Brian - JS for Map and Store Locator //
 
