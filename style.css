@@ -256,6 +256,16 @@ nav a {
     float: left;
 }
 
+.placeName {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dark-green);
+  }
+  .placeAddress , .placePhone , .placeWebsite , .placeRating {
+    font-size: .9rem;
+    color: var(--medium-green);
+  }
+
 #scroll {
         margin:4px, 4px;
         padding:4px;
