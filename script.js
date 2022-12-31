@@ -34,6 +34,9 @@ var palmPlants = [];
 var listItem = $('<li>');
 var getAllImages = [];
 var imglatin = new Object();
+var about = $('#about-btn');
+var team = $('#team-btn');
+
 
 var imgSourceArray = [];
 var useEl = $('#use');
@@ -359,6 +362,10 @@ $('#delete-btn').click(function (e) {
     plantDetails.removeClass('is-active');
 });
 
+$('#about-btn').click(function (e) {
+    e.preventDefault();
+    about.addClass ('is-active');
+
 $('#plant-cancel-btn').click(function (e) {
     // e.preventDefault();
     plantDetails.removeClass('is-active');
@@ -652,7 +659,8 @@ function domManipPlaces(i) {
     var placeRating = $("<p>", { class: "placeRating" }).html(place.rating + "/5" + " of " + place.user_ratings_total + " ratings");
 
     placeDiv.append(placeName, placeAddress, placePhone, placeWebsite, placeRating);
-
+    
+    
     // Find the div with the highest rating
     var highestRatedDiv = null;
     var highestRating = -1;
