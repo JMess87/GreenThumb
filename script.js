@@ -72,6 +72,7 @@ fetch(`https://house-plants2.p.rapidapi.com/`, options2)
         for (var i = 0; i < data.length; i++) {
             var secondLatin = data[i]['Latin name'];
             secondLatin = secondLatin.split('\'')[0];
+            secondLatin = secondLatin.toLowerCase().trim();
             secondLatin = secondLatin.split(' ').join('');
             imglink = data[i].img;
             imglatin = {
@@ -119,7 +120,7 @@ filter.click(function (e) {
         $('#plant-card-container').empty();
         $('#result-number-text').text('');
         $('#homepage-spacer-btm').attr('style', 'display:show');
-        $('#img-plant-row').attr('style', 'display:show');o
+        $('#img-plant-row').attr('style', 'display:show');
         $('#search-input').val('');
         // reset the plants name array to include all plants for search input
         allPlantsInThisCategory(allPlantsCommonLatinNames);
@@ -152,7 +153,7 @@ function getAllCommonNames() {
                         foliageArray(data[i].common, latinName);
                         break;
                     case 'Palm':
-                        palmArray(data[i].common, latinName);F
+                        palmArray(data[i].common, latinName);
                         break;
                 }
             }
@@ -321,8 +322,9 @@ search.click(function (e) {
 function retrievePlantInfo(name) {
     var commonName = name.split('(')[0];
     var latinName = name.split('(')[1];
-    latinName = latinName.split(' ').join('');
     latinName = latinName.slice(0, -1);
+    latinName = latinName.toLowerCase().trim();
+    latinName = latinName.split(' ').join('');
 
     fetch(`https://house-plants.p.rapidapi.com/latin/${latinName}`, options)
         .then(function (response) {
@@ -331,11 +333,20 @@ function retrievePlantInfo(name) {
         .then(function (data) {
             var imagesourcelink;
             for (var i = 0; i < getAllImages.length; i++) {
-                if (latinName.toLowerCase() === getAllImages[i].latinname.toLowerCase()) {
+                if(latinName === getAllImages[i].latinname){
                     imagesourcelink = getAllImages[i].imgsource;
+                    plantImage.attr('src', imagesourcelink);
+                    break;
+                } 
+                if(latinName !== getAllImages[i].latinname){
+                    imagesourcelink = findImage(latinName);
+                    if(typeof imagesourcelink !== "undefined"){
+                        plantImage.attr('src', imagesourcelink);
+                        break;
+                    }
                 }
             }
-            plantImage.attr('src', imagesourcelink);
+        
             common.text(commonName);
             family.text(data[0].family);
             category.text(data[0].category);
@@ -353,6 +364,93 @@ function retrievePlantInfo(name) {
             console.error(err);
         });
 };
+
+function findImage(findImageByLatinName){
+    var imageSourceLink; 
+    switch(findImageByLatinName){
+        case 'aechmeafasciata':
+            imageSourceLink = "./images/ResultsImages/Aechmeafasciata.jpeg";
+            return imageSourceLink;
+        case 'agaveangustiloliamarginata':
+            imageSourceLink = "./images/ResultsImages/Agaveangustiloliamarginata.jpeg";
+            return imageSourceLink;
+        case 'calatheapicturaargentea':
+            imageSourceLink = "./images/ResultsImages/Calatheapicturaargentea.jpeg";
+            return imageSourceLink;
+        case 'chamaedoreaseifrizii': 
+            imageSourceLink = "./images/ResultsImages/Chamaedoreaseifrizii.jpeg";
+            return imageSourceLink; 
+        case 'codiaeum':
+            imageSourceLink = "./images/ResultsImages/Codiaeum.jpeg";
+            return imageSourceLink;    
+        case 'dracaenafragransmassangeana':
+            imageSourceLink = "./images/ResultsImages/Dracaenafragransmassangeana.jpg";
+            return imageSourceLink; 
+        case 'dieffenbachiaamoena':
+            imageSourceLink = "./images/ResultsImages/Dieffenbachiaamoena.jpeg";
+            return imageSourceLink; 
+        case 'hoyacarnosaexotica':
+            imageSourceLink = "./images/ResultsImages/Hoyacarnosaexotica.jpeg";
+            return imageSourceLink; 
+        case 'liriopemuscarivariegata':
+            imageSourceLink = "./images/ResultsImages/Liriopemuscarivariegata.jpeg";
+            return imageSourceLink; 
+        case 'hibiscusrosasinensis':
+            imageSourceLink = "./images/ResultsImages/Hibiscusrosasinensis.jpeg";
+            return imageSourceLink; 
+        case 'nephrolepisexaltatavar':
+            imageSourceLink = "./images/ResultsImages/Nephrolepisexaltata.jpeg";
+            return imageSourceLink; 
+        case 'pteriscreticaparkeri':
+            imageSourceLink = "./images/ResultsImages/Pteriscreticaparkeri.jpeg";
+            return imageSourceLink; 
+        case 'polystichumtsussimense':
+            imageSourceLink = "./images/ResultsImages/Polystichumtsussimense.jpeg";
+            return imageSourceLink;
+        case 'pteriscreticaalbolineata':
+            imageSourceLink = "./images/ResultsImages/Pteriscreticaalbolineata.jpeg";
+            return imageSourceLink;   
+        case 'sansevieriatrifasciatahahnii':
+            imageSourceLink = "./images/ResultsImages/Sansevieriatrifasciatahahnii.jpeg";
+            return imageSourceLink;    
+        case 'polysciaspinnatamarginata':
+            imageSourceLink = "./images/ResultsImages/Polysciaspinnatamarginata.jpeg";
+            return imageSourceLink; 
+        case 'polysciasfruticosaelegans':
+            imageSourceLink = "./images/ResultsImages/Polysciasfruticosaelegans.jpeg";
+            return imageSourceLink; 
+        case 'pterisensiformisevergemiensis':
+            imageSourceLink = "./images/ResultsImages/Pterisensiformisevergemiensis.jpeg";
+            return imageSourceLink; 
+        case 'spathiphyllumlynise':
+            imageSourceLink = "./images/ResultsImages/Spathiphyllumlynise.jpeg";
+            return imageSourceLink; 
+        case 'spathiphyllumceres':
+            imageSourceLink = "./images/ResultsImages/Spathiphyllumceres.jpeg";
+            return imageSourceLink; 
+        case 'spathiphyllumsensation':
+            imageSourceLink = "./images/ResultsImages/Spathiphyllumsensation.jpeg";
+            return imageSourceLink; 
+        case 'spathiphyllumstarlight':
+            imageSourceLink = "./images/ResultsImages/Spathiphyllumstarlight.jpeg";
+            return imageSourceLink; 
+        case 'spathiphyllumdomino':
+            imageSourceLink = "./images/ResultsImages/Spathiphyllumdomino.jpeg";
+            return imageSourceLink; 
+        case 'scheffleraarboricolatrinette':
+            imageSourceLink = "./images/ResultsImages/Scheffleraarboricolatrinette.jpeg";
+            return imageSourceLink;  
+        case 'scheffleraactinophyllaamate':
+            imageSourceLink = "./images/ResultsImages/Scheffleraactinophyllaamate.jpeg";
+            return imageSourceLink; 
+        case 'scheffleraactinophyllarenegade':
+            imageSourceLink = "./images/ResultsImages/Scheffleraactinophyllarenegade.jpeg";
+            return imageSourceLink; 
+        case 'spathiphyllumsupreme':
+            imageSourceLink = "./images/ResultsImages/Spathiphyllumsupreme.jpeg";
+            return imageSourceLink;                                 
+    } 
+}
 
 $('#delete-btn').click(function (e) {
     e.preventDefault();
@@ -571,8 +669,7 @@ function findPlace() {
                 console.log(level1Results);
                 level1ResultsG = level1Results;
             }
-            combineResultsG = level1ResultsG;
-
+            combineResultsG = level1ResultsG;           
             resolve();
         }
     });
