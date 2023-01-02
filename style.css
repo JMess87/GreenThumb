@@ -24,7 +24,7 @@ h1 {
     margin-top: 100px;
 } */
 
-/* button {
+/* .greenbutton {
     font-size: 16px;
     border-radius: 10px;
     background-color:rgb(114, 232, 181);
@@ -120,6 +120,7 @@ nav a {
     color: white;
 }
 
+
 /* title font family and color on plant infomation card  */
 #commonname {
     font-family: var(--logo-font-family);
@@ -137,6 +138,7 @@ nav a {
     font-size: 1.1rem;
     font-weight: 700;
 }
+
 #img-plant-row {
     position: fixed;
     bottom: 3rem;
@@ -222,42 +224,52 @@ nav a {
 }
 
 /* Marquee Style */
-#marquee1{
+#marquee1 {
+    display:flex;
+    flex:auto;
+    justify-content: center;
     border: 1px solid;
-    /* border-radius: 2rem; */
-    color: white;
-    background-color: var(--medium-green);
-    width: auto;
-    overflow: hidden;
-}
+    border-radius: 2rem;
+    text-emphasis: strong;
+    color: var(--dark-green);
+    background-color: var(--light-green);
+    text-align:center;
+    width:55%;
+    height:auto;
+    overflow:inherit;
+}S
 
-.marquee{
+.marquee {
     color: black;
     font-weight: bold;
     white-space: nowrap;
     clear: both;
-    float: left;
-   
+    /* float: left; */
+
 }
 
 .placeName {
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--dark-green);
-  }
-  .placeAddress , .placePhone , .placeWebsite , .placeRating {
+}
+
+.placeAddress,
+.placePhone,
+.placeWebsite,
+.placeRating {
     font-size: .9rem;
     color: var(--medium-green);
-  }
+}
 
 #scroll {
-        margin:4px, 4px;
-        padding:4px;
-        width: 500px;
-        height: 36rem;
-        overflow-y: scroll;
-        text-align:justify;
-    }
+    margin: 4px, 4px;
+    padding: 4px;
+    width: auto;
+    height: 36rem;
+    overflow-y: scroll;
+    text-align: justify;
+    background-color: whitesmoke;
+}
 
 
-/* add Media Query for 1440 to fix right side gap
