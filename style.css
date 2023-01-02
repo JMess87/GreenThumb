@@ -95,7 +95,7 @@ nav a {
 }
 
 #input-field {
-    width: 30rem;
+    width: 35rem;
 }
 
 #search-bar-main {
@@ -137,23 +137,6 @@ nav a {
     font-size: 1.1rem;
     font-weight: 700;
 }
-
-/* image hover effects: hover to zoom in */
-/* .result-image {
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.result-image img {
-    width: 100%;
-    transition: 0.5s all ease-in-out;
-}
-
-.result-image:hover img {
-    transform: scale(1.5);
-
-} */
-
 #img-plant-row {
     position: fixed;
     bottom: 3rem;

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="chrome">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Thumb !</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto:wght@100;300;400;500;700;900&display=swap');
     </style>
     <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css" />
+    
 </head>
 
 <body onload="getLocation()">
-
+    
     <!-- added header section to show logo and nav options(ZL) -->
     <header id="header-top" class="container level">
         <div class="level-left">
@@ -68,7 +69,7 @@
                 <ul id="commonnameslist"></ul>
             </div>
             <div class="control">
-                <button id="search-btn" class="button">Search</button>
+                <button id='search-btn' class="button">Search</button>
             </div>
         </section>
 
@@ -89,7 +90,7 @@
                     <p class="title">Garden Stores Near You:</p>
                     <div>
                         <div class="tile is-child box">
-                            <div style="width:40vh" class="columns" id="scroll">
+                            <div class="column" id="scroll">
                                 <div class="column" id="places">
 
                                 </div>
@@ -104,10 +105,9 @@
                 </div>
             </div>
         </div>
-        <footer class="modal-card-foot">
+        <footer class="modal-card-foot" class="fa fa-align-center" aria-hidden="true"></i>
             <footer class="modal-card-foot">
                 <button id='plant-cancel-btn' class="button is-success" onclick="window.location='index.html';"> Cancel</button>
-                <button onclick="getLocation()" class="button is-success">Get Location</button>
             </footer>
             
         </footer>
