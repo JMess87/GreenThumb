@@ -1,6 +1,6 @@
 var plantName = $('#search-input');
 var filter = $('#filter-btn');
-var search = $('#search-btn');
+const search = $('#search-btn');
 var categoryFilter = $('#filter-box');
 var commonNamesList = $('#commonnameslist');
 var searchButton = $('#search');
@@ -46,7 +46,7 @@ var foliagePlantsArr = [];
 var palmPlantsArr = [];
 const marquee1 = document.getElementById('marquee1');
 
-
+// API 1
 const options = {
     method: 'GET',
     headers: {
@@ -55,6 +55,7 @@ const options = {
     }
 };
 
+// API 2
 const options2 = {
     method: 'GET',
     headers: {
@@ -531,12 +532,12 @@ function showResultText() {
     $('#homepage-spacer-btm').attr('style', 'display:none');
 }
 
-// Marquee Animation
+// Marquee Animation (JM)
 animate(marquee1);
 
 
 function animate(element) {
-    let elementWidth = element.offsetWidth;
+    let elementWidth = element.offsetWidth
     let parentWidth = element.parentElement.offsetWidth;
     let flag = 0;
 

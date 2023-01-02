@@ -16,7 +16,7 @@ Features:
 * When ou submit the zip code, all the garden stores within a radius of 5 kilometers will be displayed on the left hand side of the page. Click on 'Cancel' button to go back to the main page. 
 * You can also see an animated marquee disclaimer at the top of the maps page that says, "Please contact the store directly to see if they have your desired house plant in stock !".
 
-Future/Possible Features - Map to store, toxicity, can you eat them ? Product Availability, possible weather outlook for the area.
+Future/Possible Features - Map to store, send locations to phone , product availability, possible weather outlook for the area.
 
 APIs to be used: 
 Plant Database 1 -
@@ -27,7 +27,7 @@ or
 Plant Database 2 - 
 https://rapidapi.com/mnai01/api/house-plants2/
 
-Google Place APIs - 
+Google Place APIs - https://maps.googleapis.com/maps/api/place/nearbysearch/output?parameters
 
 Roles: 
 
@@ -39,9 +39,10 @@ Zhihao: Wireframe , CSS Bulma , Main Homepage window , results cards, CSS Bulma,
 
 Project Management Tools: 
 Figma - Created a collaborative space to plan out the entire project, take notes, vote on ideas, and organize deliverables.
+Zoom - Utilized for meetings that took place outside of scheduled class time.
+Google Slides - Utilized to develo the Google slides that were presented during the presentation of the app and material.
 
 
 Resources:
 
-Carousel: https://webdesign.tutsplus.com/tutorials/how-to-build-a-simple-carousel-with-vanilla-javascript--cms-41734
 Marquee Structure: https://www.geeksforgeeks.org/create-the-marquee-text-effect-using-javascript/
