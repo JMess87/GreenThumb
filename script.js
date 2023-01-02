@@ -573,7 +573,7 @@ animate(marquee1);
 function animate(element) {
     let elementWidth = element.offsetWidth;
     let parentWidth = element.parentElement.offsetWidth;
-    let flag = 0;
+    let flag = 10;
 
     setInterval(() => {
         element.style.marginLeft = --flag + "px";
@@ -581,7 +581,7 @@ function animate(element) {
         if (elementWidth == -flag) {
             flag = parentWidth;
         }
-    }, 20);
+    }, 30);
 }
 
 // -------------------------------------------------------------------------- // 
@@ -659,6 +659,7 @@ function zipInfoWindow() {
         '<div id="bodyContent">' +
         '<input type="text" id="zipField" placeholder="Zip Code">' +
         '<button id="zipButton" onclick="zipCode(), zipInfoWindow.close()"  class="button is-success">Submit</button>';
+        
 
     const zipInfoWindow = new google.maps.InfoWindow({
 
@@ -674,6 +675,7 @@ function zipInfoWindow() {
 function zipCode() {
     geocoder = new google.maps.Geocoder();
     var address = document.getElementById("zipField").value;
+    localStorage.setItem('zipCode', address);
     geocoder.geocode({ address: address }, function (results, status) {
         if (status == "OK") {
             console.log(results);

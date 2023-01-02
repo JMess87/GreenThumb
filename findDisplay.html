@@ -25,7 +25,7 @@
     <!-- added header section to show logo and nav options(ZL) -->
     <header id="header-top" class="container level">
         <div class="level-left">
-            <a id="logo-small" class="level-item title is-6"onclick="window.location='index.html';">GreenThumb</a>
+            <a id="logo-small" class="level-item title is-6" onclick="window.location='index.html';">GreenThumb</a>
         </div>
         <nav id="navBar" class="level-right">
             <a class="level-item"><button id="about-btn"
@@ -46,7 +46,7 @@
         <section class="columns">
             <div class="column is-flex is-flex-direction-column">
                 <div class="is-flex is-flex-direction-column is-align-items-flex-center is-align-items-center">
-                    <h1 id="logo-large" class="title is-1">GreenThumb</h1>
+                    <h1 id="logo-large" class="title is-1" onclick="window.location='index.html';" > GreenThumb</h1>
                     <h2 id="sub-text" class="subtitle">Find house plant details to help you care for your foliage friend
                         !</p>
                 </div>
@@ -75,6 +75,69 @@
         <br><br>
 
 
+        <!-- Plant Details Modal when search is done from find screen -->
+        <section id="plantdetails" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card" id="modal-card-box">
+                <header class="modal-card-head">
+                    <ul
+                        class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
+                        <p id="commonname" class="info-plant-name-lg title is-4">Plant Name</p>
+                        <p id="latinname" class="info-plant-name-sm subtitle is-6">Plant Latin Name</p>
+                    </ul>
+                    <button id="delete-btn" class="delete" aria-label="close"></button>
+                </header>
+    
+                <section class="modal-card-body has-background-white">
+    
+                    <figure class="result-image image is-5by3">
+                        <img id="plantimage" alt="placeholder-img">
+                    </figure>
+    
+                    <div class="columns mt-3 ">
+                        <div class="column is-flex is-flex-direction-column is-align-items-center">
+                            <ul
+                                class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                                <p class="info-subtitle  ">Category</p>
+                                <p id="category">Category description</p>
+                            </ul>
+                            <ul
+                                class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                                <p class="info-subtitle">Sunlight</p>
+                                <p id="ideallight">Sunlight description</p>
+                            </ul>
+                            <ul
+                                class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                                <p class="info-subtitle">Watering</p>
+                                <p id="watering">Watering description</p>
+                            </ul>
+                            <ul
+                                class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                                <p class="info-subtitle">Use</p>
+                                <p id="use">Usage description</p>
+                            </ul>
+                            <ul
+                                class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                                <p class="info-subtitle">Temperature</p>
+                                <p id="tempmax">Max Temperature description</p>
+                                <p id="tempmin">Min Temperature description</p>
+                            </ul>
+                            <ul
+                                class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                                <p class="info-subtitle">Climate</p>
+                                <p id="climate">Climate description</p>
+                            </ul>
+                        </div>
+                    </div>
+    
+                </section>
+                <footer class="modal-card-foot">
+                    <button id="find-btn" class="button is-sucess" onclick="window.location='findDisplay.html';"> Find Plant! </button>
+                    <button id='plant-cancel-btn' class="button is-success">Cancel</button>
+                </footer>
+            </div>
+        </section>
+
 
 
         <!-- section below the search bar left panel has two columns for places -->
@@ -99,12 +162,12 @@
                 </div>
             </div>
         </div>
-        <footer class="modal-card-foot">
+        <!-- <footer class="modal-card-foot">
             <footer class="modal-card-foot">
                 <button id='plant-cancel-btn' class="button is-success" onclick="window.location='index.html';"> Cancel</button>
             </footer>
             
-        </footer>
+        </footer> -->
 
         </section>
 

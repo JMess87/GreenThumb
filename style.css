@@ -24,7 +24,7 @@ h1 {
     margin-top: 100px;
 } */
 
-/* button {
+/* .greenbutton {
     font-size: 16px;
     border-radius: 10px;
     background-color:rgb(114, 232, 181);
@@ -225,20 +225,26 @@ nav a {
 
 /* Marquee Style */
 #marquee1 {
+    display:flex;
+    flex:auto;
+    justify-content: center;
     border: 1px solid;
-    /* border-radius: 2rem; */
-    color: white;
-    background-color: var(--medium-green);
-    width: auto;
-    overflow: hidden;
-}
+    border-radius: 2rem;
+    text-emphasis: strong;
+    color: var(--dark-green);
+    background-color: var(--light-green);
+    text-align:center;
+    width:55%;
+    height:auto;
+    overflow:inherit;
+}S
 
 .marquee {
     color: black;
     font-weight: bold;
     white-space: nowrap;
     clear: both;
-    float: left;
+    /* float: left; */
 
 }
 
@@ -259,7 +265,7 @@ nav a {
 #scroll {
     margin: 4px, 4px;
     padding: 4px;
-    width: 500px;
+    width: auto;
     height: 36rem;
     overflow-y: scroll;
     text-align: justify;
@@ -267,4 +273,3 @@ nav a {
 }
 
 
-/* add Media Query for 1440 to fix right side gap
