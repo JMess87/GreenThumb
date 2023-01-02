@@ -1,6 +1,12 @@
 var plantName = $('#search-input');
 var filter = $('#filter-btn');
-const search = $('#search-btn');
+var search = $('#search-btn');
+var about = $('#about');
+var aboutbtn = $('#about-btn');
+var canaboutbtn = $('#canaboutbtn');
+var team = $('#team');
+var teambtn = $('#team-btn');
+var canteambtn = $('#canteambtn');
 var categoryFilter = $('#filter-box');
 var commonNamesList = $('#commonnameslist');
 var searchButton = $('#search');
@@ -45,6 +51,35 @@ var flowerPlantsArr = [];
 var foliagePlantsArr = [];
 var palmPlantsArr = [];
 const marquee1 = document.getElementById('marquee1');
+
+
+
+// about modal
+
+aboutbtn.click(function (e) {
+    e.preventDefault();
+    about.addClass('is-active');
+});
+
+
+canaboutbtn.click(function (e) {
+    e.preventDefault();
+    about.removeClass('is-active');
+});
+
+// team modal
+
+teambtn.click(function (e) {
+    e.preventDefault();
+    team.addClass('is-active');
+});
+
+canteambtn.click(function (e) {
+    e.preventDefault();
+    team.removeClass('is-active');
+});
+
+
 
 // API 1
 const options = {
@@ -334,20 +369,20 @@ function retrievePlantInfo(name) {
         .then(function (data) {
             var imagesourcelink;
             for (var i = 0; i < getAllImages.length; i++) {
-                if(latinName === getAllImages[i].latinname){
+                if (latinName === getAllImages[i].latinname) {
                     imagesourcelink = getAllImages[i].imgsource;
                     plantImage.attr('src', imagesourcelink);
                     break;
-                } 
-                if(latinName !== getAllImages[i].latinname){
+                }
+                if (latinName !== getAllImages[i].latinname) {
                     imagesourcelink = findImage(latinName);
-                    if(typeof imagesourcelink !== "undefined"){
+                    if (typeof imagesourcelink !== "undefined") {
                         plantImage.attr('src', imagesourcelink);
                         break;
                     }
                 }
             }
-        
+
             common.text(commonName);
             family.text(data[0].family);
             category.text(data[0].category);
@@ -366,9 +401,9 @@ function retrievePlantInfo(name) {
         });
 };
 
-function findImage(findImageByLatinName){
-    var imageSourceLink; 
-    switch(findImageByLatinName){
+function findImage(findImageByLatinName) {
+    var imageSourceLink;
+    switch (findImageByLatinName) {
         case 'aechmeafasciata':
             imageSourceLink = "./images/ResultsImages/Aechmeafasciata.jpeg";
             return imageSourceLink;
@@ -378,79 +413,79 @@ function findImage(findImageByLatinName){
         case 'calatheapicturaargentea':
             imageSourceLink = "./images/ResultsImages/Calatheapicturaargentea.jpeg";
             return imageSourceLink;
-        case 'chamaedoreaseifrizii': 
+        case 'chamaedoreaseifrizii':
             imageSourceLink = "./images/ResultsImages/Chamaedoreaseifrizii.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'codiaeum':
             imageSourceLink = "./images/ResultsImages/Codiaeum.jpeg";
-            return imageSourceLink;    
+            return imageSourceLink;
         case 'dracaenafragransmassangeana':
             imageSourceLink = "./images/ResultsImages/Dracaenafragransmassangeana.jpg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'dieffenbachiaamoena':
             imageSourceLink = "./images/ResultsImages/Dieffenbachiaamoena.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'hoyacarnosaexotica':
             imageSourceLink = "./images/ResultsImages/Hoyacarnosaexotica.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'liriopemuscarivariegata':
             imageSourceLink = "./images/ResultsImages/Liriopemuscarivariegata.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'hibiscusrosasinensis':
             imageSourceLink = "./images/ResultsImages/Hibiscusrosasinensis.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'nephrolepisexaltatavar':
             imageSourceLink = "./images/ResultsImages/Nephrolepisexaltata.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'pteriscreticaparkeri':
             imageSourceLink = "./images/ResultsImages/Pteriscreticaparkeri.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'polystichumtsussimense':
             imageSourceLink = "./images/ResultsImages/Polystichumtsussimense.jpeg";
             return imageSourceLink;
         case 'pteriscreticaalbolineata':
             imageSourceLink = "./images/ResultsImages/Pteriscreticaalbolineata.jpeg";
-            return imageSourceLink;   
+            return imageSourceLink;
         case 'sansevieriatrifasciatahahnii':
             imageSourceLink = "./images/ResultsImages/Sansevieriatrifasciatahahnii.jpeg";
-            return imageSourceLink;    
+            return imageSourceLink;
         case 'polysciaspinnatamarginata':
             imageSourceLink = "./images/ResultsImages/Polysciaspinnatamarginata.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'polysciasfruticosaelegans':
             imageSourceLink = "./images/ResultsImages/Polysciasfruticosaelegans.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'pterisensiformisevergemiensis':
             imageSourceLink = "./images/ResultsImages/Pterisensiformisevergemiensis.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'spathiphyllumlynise':
             imageSourceLink = "./images/ResultsImages/Spathiphyllumlynise.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'spathiphyllumceres':
             imageSourceLink = "./images/ResultsImages/Spathiphyllumceres.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'spathiphyllumsensation':
             imageSourceLink = "./images/ResultsImages/Spathiphyllumsensation.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'spathiphyllumstarlight':
             imageSourceLink = "./images/ResultsImages/Spathiphyllumstarlight.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'spathiphyllumdomino':
             imageSourceLink = "./images/ResultsImages/Spathiphyllumdomino.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'scheffleraarboricolatrinette':
             imageSourceLink = "./images/ResultsImages/Scheffleraarboricolatrinette.jpeg";
-            return imageSourceLink;  
+            return imageSourceLink;
         case 'scheffleraactinophyllaamate':
             imageSourceLink = "./images/ResultsImages/Scheffleraactinophyllaamate.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'scheffleraactinophyllarenegade':
             imageSourceLink = "./images/ResultsImages/Scheffleraactinophyllarenegade.jpeg";
-            return imageSourceLink; 
+            return imageSourceLink;
         case 'spathiphyllumsupreme':
             imageSourceLink = "./images/ResultsImages/Spathiphyllumsupreme.jpeg";
-            return imageSourceLink;                                 
-    } 
+            return imageSourceLink;
+    }
 }
 
 $('#delete-btn').click(function (e) {
@@ -535,9 +570,8 @@ function showResultText() {
 // Marquee Animation (JM)
 animate(marquee1);
 
-
 function animate(element) {
-    let elementWidth = element.offsetWidth
+    let elementWidth = element.offsetWidth;
     let parentWidth = element.parentElement.offsetWidth;
     let flag = 0;
 
@@ -547,7 +581,7 @@ function animate(element) {
         if (elementWidth == -flag) {
             flag = parentWidth;
         }
-    },20);
+    }, 20);
 }
 
 // -------------------------------------------------------------------------- // 
@@ -670,7 +704,7 @@ function findPlace() {
                 console.log(level1Results);
                 level1ResultsG = level1Results;
             }
-            combineResultsG = level1ResultsG;           
+            combineResultsG = level1ResultsG;
             resolve();
         }
     });

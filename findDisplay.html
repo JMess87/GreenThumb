@@ -21,7 +21,7 @@
 </head>
 
 <body onload="getLocation()">
-    
+
     <!-- added header section to show logo and nav options(ZL) -->
     <header id="header-top" class="container level">
         <div class="level-left">
@@ -32,18 +32,12 @@
                     class="button is-normal is-primary is-inverted">About</button></a>
             <a class="level-item"><button id="team-btn"
                     class="button is-normal is-primary is-inverted">Team</button></a>
-
             <a class="level-item">
-                <button href="https://github.com/JMess87/GreenThumb" class="button is-normal is-primary is-inverted">
-                    GitHub</button>
+                        <button class="button is-normal is-primary is-inverted" onclick="window.location='https://github.com/JMess87/GreenThumb';">GitHub</button>
+                            
             </a>
         </nav>
     </header>
-    <!-- Scrolling Marquee -->
-
-
-
-
 
     <!-- main logo and search box section -->
     <main class="container" id="home-page">
@@ -101,11 +95,11 @@
             </div>
             <div class="tile is-parent">
                 <div class="tile is-child box">
-                    <div style="height: 70vh; width: 53vw;" id="map"></div>
+                    <div style="height: 70vh; width: auto;" id="map"></div>
                 </div>
             </div>
         </div>
-        <footer class="modal-card-foot" class="fa fa-align-center" aria-hidden="true"></i>
+        <footer class="modal-card-foot">
             <footer class="modal-card-foot">
                 <button id='plant-cancel-btn' class="button is-success" onclick="window.location='index.html';"> Cancel</button>
             </footer>
@@ -113,6 +107,88 @@
         </footer>
 
         </section>
+
+<!-- About Modal -->
+<main>
+<section id="about" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card" id="modal-card-box">
+        <header class="modal-card-head">
+            <ul
+                class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
+                <li id="info-plant-name-lg" class="title is-3">About Green Thumb</li>
+                <li id="info-plant-name-sm" class="subtitle is-6">Our Vision and Mission</li>
+            </ul>
+            <button id="canaboutbtn" class="delete" aria-label="close"></button>
+        </header>
+
+        <section class="modal-card-body">
+
+            <div class="columns mt-3">
+                <div class="column">
+                    <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                        <li class="info-subtitle">Vision</li>
+                        <p> To enable all plant owners to meet their full "growth" potential. Allowing
+                            all homes
+                            to be covered in foliage that is properly cared for and vibrant!</p>
+                    </ul>
+                    <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                        <li class="info-subtitle">Mission</li>
+                        <p>Mission description</p>
+                    </ul>
+                    <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                        <li class="info-subtitle">What we deliver</li>
+                        <p>Product summary and how it meets our vision and mission</p>
+                    </ul>
+                </div>
+        </section>
+    </main>
+
+<!-- Team Modal -->
+<main>
+<section id="team" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card" id="modal-card-box">
+        <header class="modal-card-head">
+            <ul
+                class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
+                <li id="info-plant-name-lg" class="title is-3">Team Profile</li>
+                <li id="info-plant-name-sm" class="subtitle is-6">Meet our App Growers !</li>
+            </ul>
+            <button id="canteambtn" class="delete" aria-label="close"></button>
+        </header>
+
+        <section class="modal-card-body">
+
+            <div class="columns mt-3">
+                <div class="column">
+                    <ul class="is-flex is-flex-direction-column is-align-items-flex-start mb-6">
+                        <div>
+                            <img src="./images/Brian McDonell.jpeg">
+                            <p> Brian McDonell - </p> 
+                        </div>
+                        <div>
+                            <img src="./images/Suvarna Jadhav.png">
+                            <p> Suvarna Jadhav - </p>
+                        </div>
+                        <div>
+                            <img src="./images/Zhihao Li.jpeg">
+                            <p> Zhihao Li - Bulma Framework </p>
+                        </div>
+                        <div>
+                            <img src="./images/BeFunky-photo.png">
+                            <p> Jennilee Messenger - </p>
+                        </div>
+                        
+                        
+                </div>
+        </section>
+
+
+
+
+
+
     </main>
 
     <!-- homepage white spacer bottom-->

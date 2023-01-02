@@ -120,6 +120,7 @@ nav a {
     color: white;
 }
 
+
 /* title font family and color on plant infomation card  */
 #commonname {
     font-family: var(--logo-font-family);
@@ -137,6 +138,7 @@ nav a {
     font-size: 1.1rem;
     font-weight: 700;
 }
+
 #img-plant-row {
     position: fixed;
     bottom: 3rem;
@@ -222,7 +224,7 @@ nav a {
 }
 
 /* Marquee Style */
-#marquee1{
+#marquee1 {
     border: 1px solid;
     /* border-radius: 2rem; */
     color: white;
@@ -231,33 +233,38 @@ nav a {
     overflow: hidden;
 }
 
-.marquee{
+.marquee {
     color: black;
     font-weight: bold;
     white-space: nowrap;
     clear: both;
     float: left;
-   
+
 }
 
 .placeName {
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--dark-green);
-  }
-  .placeAddress , .placePhone , .placeWebsite , .placeRating {
+}
+
+.placeAddress,
+.placePhone,
+.placeWebsite,
+.placeRating {
     font-size: .9rem;
     color: var(--medium-green);
-  }
+}
 
 #scroll {
-        margin:4px, 4px;
-        padding:4px;
-        width: 500px;
-        height: 36rem;
-        overflow-y: scroll;
-        text-align:justify;
-    }
+    margin: 4px, 4px;
+    padding: 4px;
+    width: 500px;
+    height: 36rem;
+    overflow-y: scroll;
+    text-align: justify;
+    background-color: whitesmoke;
+}
 
 
 /* add Media Query for 1440 to fix right side gap

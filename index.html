@@ -29,14 +29,15 @@
 
         <!-- modified navBar button style (ZL) -->
         <nav id="navBar" class="level-right">
-            <a class="level-item"><button id="about-btn"
-                    class="button is-normal is-primary is-inverted">About</button></a>
-            <a class="level-item"><button id="team-btn"
+            <a class="level-item">
+                <button id="about-btn"
+                    class="button is-normal is-primary is-inverted">About </button></a>
+            <a class="level-item">
+                <button id="team-btn"
                     class="button is-normal is-primary is-inverted">Team</button></a>
-
             <a class="level-item">
                 <button class="button is-normal is-primary is-inverted" onclick="window.location='https://github.com/JMess87/GreenThumb';">GitHub</button>
-                    <!-- GitHub</button> -->
+                    
             </a>
         </nav>
     </header>
@@ -134,7 +135,7 @@
         <img src="./images/Plant-btm.png" alt="potted-plants-bottom">
     </section>
 
-    <!-- About remove "is-active" class in JS to hide this informaiton card overlay or add "is-active" class to show -->
+    <!-- About remove "is-active" class in JS to hide this information card overlay or add "is-active" class to show -->
     <main>
         <section id="about" class="modal">
             <div class="modal-background"></div>
@@ -145,7 +146,7 @@
                         <li id="info-plant-name-lg" class="title is-3">About Green Thumb</li>
                         <li id="info-plant-name-sm" class="subtitle is-6">Our Vision and Mission</li>
                     </ul>
-                    <button class="delete" aria-label="close"></button>
+                    <button id="canaboutbtn" class="delete" aria-label="close"></button>
                 </header>
 
                 <section class="modal-card-body">
@@ -182,7 +183,7 @@
                         <li id="info-plant-name-lg" class="title is-3">Team Profile</li>
                         <li id="info-plant-name-sm" class="subtitle is-6">Meet our App Growers !</li>
                     </ul>
-                    <button class="delete" aria-label="close"></button>
+                    <button id="canteambtn" class="delete" aria-label="close"></button>
                 </header>
 
                 <section class="modal-card-body">
@@ -269,11 +270,78 @@
 
             </section>
             <footer class="modal-card-foot">
-                <button id="find-btn" class="button is-success" onclick="window.location='findDisplay.html';">Find Plant!</button>
+                <button id="find-btn" class="button is-sucess" onclick="window.location='findDisplay.html';"> Find Plant! </button>
                 <button id='plant-cancel-btn' class="button is-success">Cancel</button>
             </footer>
         </div>
     </section>
+
+
+
+<!-- About Modal -->
+<section id="test" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card" id="modal-card-box">
+            <header class="modal-card-head">
+                <ul
+                    class="modal-card-title is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-flex-start">
+                    <p id="commonname" class="info-plant-name-lg title is-4">Plant Name</p>
+                    <p id="latinname" class="info-plant-name-sm subtitle is-6">Plant Latin Name</p>
+                </ul>
+                <button id="delete-btn" class="delete" aria-label="close"></button>
+            </header>
+
+            <section class="modal-card-body has-background-white">
+
+                <figure class="result-image image is-5by3">
+                    <img id="plantimage" alt="placeholder-img">
+                </figure>
+
+                <div class="columns mt-3 ">
+                    <div class="column is-flex is-flex-direction-column is-align-items-center">
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle  ">Category</p>
+                            <p id="category">Category description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Sunlight</p>
+                            <p id="ideallight">Sunlight description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Watering</p>
+                            <p id="watering">Watering description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Use</p>
+                            <p id="use">Usage description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Temperature</p>
+                            <p id="tempmax">Max Temperature description</p>
+                            <p id="tempmin">Min Temperature description</p>
+                        </ul>
+                        <ul
+                            class="is-flex is-flex-direction-column is-align-items-flex-center mb-6 is-align-items-center">
+                            <p class="info-subtitle">Climate</p>
+                            <p id="climate">Climate description</p>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+            <footer class="modal-card-foot">
+                <button id="find-btn" class="button is-sucess" onclick="window.location='findDisplay.html';"> Find Plant! </button>
+                <button id='plant-cancel-btn' class="button is-success">Cancel</button>
+            </footer>
+        </div>
+    </section>
+
+<!-- js file connections -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./script.js"></script>
 </body>
