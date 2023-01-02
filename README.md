@@ -13,7 +13,7 @@ Features:
 * When you click on any of the above mentioned category, all the plant images in that category will be displayed along with their common name and latin name. 
 * If you click on the plant image itself, it will pop up a modal with plant image and plant details as mentioned above. You can close the modal with the (X) at the top right corner or by clicking the 'Cancel' button.
 * The plant modal also has a 'Find Plant!' button, if you click on the button it opens up a new page with a google map that has a input filed to enter your zip code. 
-* When ou submit the zip code, all the garden stores within a radius of 5 kilometers will be displayed on the left hand side of the page. Click on 'Cancel' button to go back to the main page. 
+* When you submit the zip code, all the garden stores within a radius of 5 kilometers will be displayed on the left hand side of the page. Click on "GreenThumb" logo to go back to the main page. 
 * You can also see an animated marquee disclaimer at the top of the maps page that says, "Please contact the store directly to see if they have your desired house plant in stock !".
 
 Future/Possible Features - Map to store, send locations to phone , product availability, possible weather outlook for the area.
