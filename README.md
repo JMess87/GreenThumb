@@ -68,10 +68,11 @@ Screenshots:
 
 Main Page:
 
-[label](../../../../../../../../Main%20Page.md)
-
+![Main Page](https://user-images.githubusercontent.com/116509586/210352076-b92f6097-ba7d-4afe-95ca-8b50031d5f74.jpg)
 
 About Modal:
+
+![About Modal](https://user-images.githubusercontent.com/116509586/210352116-b1119477-7b41-4214-8a80-c1db949c1f04.jpg)
 
 
 Team Modal:
