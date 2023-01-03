@@ -86,3 +86,6 @@ findDisplay:
 
 
 Plant Detail Modal:
+
+![plant details](https://user-images.githubusercontent.com/116509586/210354464-4e71538e-6434-4337-964c-a190a702276a.jpg)
+
