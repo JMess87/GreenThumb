@@ -77,8 +77,12 @@ About Modal:
 
 Team Modal:
 
+![Team Modal](https://user-images.githubusercontent.com/116509586/210352364-e3f8d409-f4cc-4854-afec-9a8e875be563.jpg)
+
 
 findDisplay:
+
+![findDisplay](https://user-images.githubusercontent.com/116509586/210353073-66eecdad-5695-4ab3-9672-b4887a99749d.jpg)
 
 
 Plant Detail Modal:
