@@ -211,6 +211,26 @@ nav a {
         padding-bottom: 0rem;
     }
 
+    #result-number-text {
+        text-align: center;
+    }
+
+    #watering {
+        text-align: center;
+    }
+
+    #input-field {
+        margin-bottom: 1rem;
+    }
+
+    #search-btn {
+        margin-bottom: 0.5rem;
+    }
+
+    #filter-btn {
+        margin-bottom: 0.5rem;
+    }
+
 }
 
 /* media query breakpoints for Large devices (laptops/desktops, 992px and up),*/
