@@ -83,8 +83,7 @@ Main Page:
 
 About Modal:
 
-
-
+![Updated About Modal](https://user-images.githubusercontent.com/116509586/210663141-df62033d-039e-42c5-85d2-30f0f5555183.jpg)
 
 Team Modal:
 
