@@ -395,6 +395,13 @@ function retrievePlantInfo(name) {
             toleratedLight.text(data[0].toleratedlight);
             watering.text(data[0].watering);
             useEl.text(data[0].use[0]);
+            console.log (commonName.length);
+            if (commonName.length > 40){
+                $("#commonname").addClass("info-plant-name-md subtitle is-6")
+            }
+            if (commonName.length < 40){
+                $("#commonname").addClass("info-plant-name-lg title is-4  is-flex-wrap-wrap")
+            }
         })
         .catch(function (err) {
             console.error(err);
@@ -609,12 +616,12 @@ function initMap() {
     };
     window.map = new google.maps.Map(document.getElementById("map"), mapOptions);
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    console.log("init map");
+    // console.log("init map");
 }
 
 function updateMap() {
-    console.log("update map");
-    console.log(latitude, longitude);
+    // console.log("update map");
+    // console.log(latitude, longitude);
     var center = new google.maps.LatLng(latitude, longitude);
     window.map.panTo(center);
 }
@@ -668,7 +675,7 @@ function zipInfoWindow() {
         maxWidth: 200
     });
     zipInfoWindow.open(map);
-    console.log("zip info window");
+    // console.log("zip info window");
 }
 
 
@@ -678,10 +685,10 @@ function zipCode() {
     localStorage.setItem('zipCode', address);
     geocoder.geocode({ address: address }, function (results, status) {
         if (status == "OK") {
-            console.log(results);
+            // console.log(results);
             latitude = results[0].geometry.location.lat();
             longitude = results[0].geometry.location.lng();
-            console.log("lat: " + latitude + " lng: " + longitude + "geo success");
+            // console.log("lat: " + latitude + " lng: " + longitude + "geo success");
             updateMap();
             findPlace();
         } else {
@@ -703,7 +710,7 @@ function findPlace() {
 
         function lvl1callback(level1Results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                console.log(level1Results);
+                // console.log(level1Results);
                 level1ResultsG = level1Results;
             }
             combineResultsG = level1ResultsG;
@@ -727,10 +734,10 @@ function findPlace() {
                     };
                     service1 = new google.maps.places.PlacesService(map);
                     service1.getDetails(request2, lvl2callback);
-                }, i * 250); //
+                }, i * 350); //
                 function lvl2callback(level2results, status) {
                     if (status == google.maps.places.PlacesServiceStatus.OK) {
-                        console.log(level2results);
+                        // console.log(level2results);
                         level2ResultsG.push(level2results);
                     }
                     combineResultsG[i].formatted_phone_number =
@@ -792,9 +799,9 @@ function domManipPlaces(i) {
     var highestRating = -1;
     $(".place").each(function () {
         var ratingScore = place.user_ratings_total * place.rating;
-        console.log(place.user_ratings_total)
-        console.log(place.rating)
-        console.log(ratingScore)
+        // console.log(place.user_ratings_total)
+        // console.log(place.rating)
+        // console.log(ratingScore)
         if (ratingScore > highestRating) {
             highestRatedDiv = $(this);
             highestRating = ratingScore;
