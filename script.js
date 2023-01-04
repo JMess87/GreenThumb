@@ -682,7 +682,7 @@ function zipInfoWindow() {
 function zipCode() {
     geocoder = new google.maps.Geocoder();
     var address = document.getElementById("zipField").value;
-    localStorage.setItem('zipCode', address);
+    localStorage.setItem('zipCode :' + address,address);
     geocoder.geocode({ address: address }, function (results, status) {
         if (status == "OK") {
             // console.log(results);
