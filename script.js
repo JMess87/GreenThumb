@@ -94,7 +94,7 @@ const options = {
 const options2 = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'a9893fa65emsh05499dc68ccba82p199e67jsnbfdbb0594c96',
+        'X-RapidAPI-Key': '10cecf9184msh7e8bbb1e51fdd5ap1b1a71jsnb4fa2c002c42',
         'X-RapidAPI-Host': 'house-plants2.p.rapidapi.com'
     }
 };
