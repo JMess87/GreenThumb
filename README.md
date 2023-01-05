@@ -4,6 +4,10 @@
 
 https://jmess87.github.io/GreenThumb/
 
+## Link to Google Slides presentation
+
+https://docs.google.com/presentation/d/1WBhrZmAuay7OiDqegHtIVRkS3dTl1iOte4CNcCeMEhc/edit#slide=id.g8fdef5909a_0_1256
+
 ## Description 
 
 Use our app to get that Green Thumb you have always envied. Find information about house plants, 
